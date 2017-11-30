@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mark Simonson - Proxima Nova Light.otf">
+            <string>ProximaNova-Light</string>
+        </array>
+        <array key="Mark Simonson - Proxima Nova Semibold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView">
+            <connections>
+                <outlet property="galleryCollectionView" destination="AA9-TT-Zgk" id="qdF-NS-bnk"/>
+                <outlet property="profileImage" destination="7wT-zW-34Y" id="Nnb-ra-tbo"/>
+                <outlet property="user_name_tv" destination="EUI-ur-6ii" id="B7k-xn-wwW"/>
+                <outlet property="view" destination="iN0-l3-epB" id="HEf-iZ-dTv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jL1-dJ-iU1" userLabel="infoview">
+                    <rect key="frame" x="20" y="0.0" width="335" height="120"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile image" translatesAutoresizingMaskIntoConstraints="NO" id="7wT-zW-34Y" userLabel="profile image">
+                            <rect key="frame" x="8" y="0.0" width="120" height="120"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="60"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farhan Fauzan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUI-ur-6ii" userLabel="profile name label">
+                            <rect key="frame" x="148" y="0.0" width="132.5" height="23.5"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard location icon" translatesAutoresizingMaskIntoConstraints="NO" id="INo-XF-KVe" userLabel="location icon">
+                            <rect key="frame" x="148" y="28.5" width="19" height="24"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="INo-XF-KVe" secondAttribute="height" multiplier="19:24" id="OwN-VS-CQX"/>
+                                <constraint firstAttribute="width" constant="19" id="vt0-9v-KXa"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="California" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-n7-dqC">
+                            <rect key="frame" x="187" y="28.5" width="72.5" height="24"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit asd kefe site" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh6-Cc-1cr" userLabel="description">
+                            <rect key="frame" x="148" y="72.5" width="171" height="40"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="dh6-Cc-1cr" firstAttribute="top" secondItem="INo-XF-KVe" secondAttribute="bottom" constant="20" id="895-Mf-mp1"/>
+                        <constraint firstItem="INo-XF-KVe" firstAttribute="top" secondItem="EUI-ur-6ii" secondAttribute="bottom" constant="5" id="BkN-JM-GPS"/>
+                        <constraint firstItem="7wT-zW-34Y" firstAttribute="centerY" secondItem="jL1-dJ-iU1" secondAttribute="centerY" id="By3-nT-zpC"/>
+                        <constraint firstItem="EUI-ur-6ii" firstAttribute="top" secondItem="7wT-zW-34Y" secondAttribute="top" id="Ckc-uE-z8E"/>
+                        <constraint firstItem="7wT-zW-34Y" firstAttribute="height" secondItem="jL1-dJ-iU1" secondAttribute="height" id="Hrg-d3-r4U"/>
+                        <constraint firstItem="dJa-n7-dqC" firstAttribute="bottom" secondItem="INo-XF-KVe" secondAttribute="bottom" id="ObF-LC-O9N"/>
+                        <constraint firstItem="7wT-zW-34Y" firstAttribute="leading" secondItem="jL1-dJ-iU1" secondAttribute="leading" constant="8" id="VWB-Lr-akL"/>
+                        <constraint firstItem="dJa-n7-dqC" firstAttribute="top" secondItem="INo-XF-KVe" secondAttribute="top" id="Wi1-RE-Q1O"/>
+                        <constraint firstAttribute="trailing" secondItem="dh6-Cc-1cr" secondAttribute="trailing" constant="16" id="XtJ-E0-hho"/>
+                        <constraint firstItem="dJa-n7-dqC" firstAttribute="leading" secondItem="INo-XF-KVe" secondAttribute="trailing" constant="20" id="aOb-9b-Myq"/>
+                        <constraint firstItem="dh6-Cc-1cr" firstAttribute="leading" secondItem="7wT-zW-34Y" secondAttribute="trailing" constant="20" id="kU2-3f-Z6w"/>
+                        <constraint firstItem="EUI-ur-6ii" firstAttribute="leading" secondItem="7wT-zW-34Y" secondAttribute="trailing" constant="20" id="ny7-cX-y8r"/>
+                        <constraint firstItem="7wT-zW-34Y" firstAttribute="width" secondItem="jL1-dJ-iU1" secondAttribute="height" multiplier="1:1" id="t2j-GD-xpT"/>
+                        <constraint firstAttribute="height" constant="120" id="xWA-po-lnx"/>
+                        <constraint firstItem="INo-XF-KVe" firstAttribute="leading" secondItem="7wT-zW-34Y" secondAttribute="trailing" constant="20" id="zFh-l2-i1L"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="AA9-TT-Zgk" userLabel="gallery collection view">
+                    <rect key="frame" x="20" y="150" width="335" height="337"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GmC-rV-PDw">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="bu0-uc-CNa"/>
+                        <outlet property="delegate" destination="-1" id="lEP-RC-bOf"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="AA9-TT-Zgk" secondAttribute="bottom" id="06w-PX-tMH"/>
+                <constraint firstAttribute="trailing" secondItem="jL1-dJ-iU1" secondAttribute="trailing" constant="20" id="ArM-ga-gG5"/>
+                <constraint firstItem="AA9-TT-Zgk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="He2-Ry-gvl"/>
+                <constraint firstItem="jL1-dJ-iU1" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="X6Q-k6-rIy"/>
+                <constraint firstItem="jL1-dJ-iU1" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="aDt-SH-3zo"/>
+                <constraint firstAttribute="trailing" secondItem="AA9-TT-Zgk" secondAttribute="trailing" constant="20" id="fMv-Zl-HvB"/>
+                <constraint firstItem="AA9-TT-Zgk" firstAttribute="top" secondItem="7wT-zW-34Y" secondAttribute="bottom" constant="30" id="kxS-mX-uES"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-345.5" y="38.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="dashboard location icon" width="9" height="12"/>
+        <image name="profile image" width="126" height="126"/>
+    </resources>
+</document>

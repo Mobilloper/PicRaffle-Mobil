@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mark Simonson - Proxima Nova Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+        <array key="Mark Simonson - Proxima Nova Semibold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="107" id="KGk-i7-Jjw" customClass="TicketListTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="149.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ticket list background" translatesAutoresizingMaskIntoConstraints="NO" id="JHo-On-eYR">
+                        <rect key="frame" x="10" y="0.0" width="300" height="150"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jGX-MF-dAK" userLabel="price">
+                        <rect key="frame" x="56" y="35.5" width="67" height="35"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="30"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30 Ticket" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4M-7j-9RV" userLabel="ticket count">
+                        <rect key="frame" x="56" y="80.5" width="70" height="20"/>
+                        <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7CC-Lg-LWV">
+                        <rect key="frame" x="184" y="55" width="80" height="40"/>
+                        <color key="backgroundColor" red="0.33333333333333331" green="0.52941176470588236" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="7CC-Lg-LWV" secondAttribute="height" multiplier="2:1" id="7VH-9K-0Mr"/>
+                            <constraint firstAttribute="width" constant="80" id="uYm-Fm-xfY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
+                        <state key="normal" title="Buy">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="actionBuyBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Iqe-5a-gnW"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="JHo-On-eYR" secondAttribute="bottom" id="0LZ-Hx-3mN"/>
+                    <constraint firstItem="JHo-On-eYR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="DUn-N5-70H"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="7CC-Lg-LWV" secondAttribute="trailing" constant="40" id="L97-Xz-UqX"/>
+                    <constraint firstItem="JHo-On-eYR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="ZNR-sR-zK5"/>
+                    <constraint firstItem="u4M-7j-9RV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="40" id="diT-cW-Dk6"/>
+                    <constraint firstAttribute="trailing" secondItem="JHo-On-eYR" secondAttribute="trailing" constant="10" id="lwc-7X-g5s"/>
+                    <constraint firstItem="jGX-MF-dAK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7" id="nI0-eZ-dfX"/>
+                    <constraint firstItem="u4M-7j-9RV" firstAttribute="top" secondItem="jGX-MF-dAK" secondAttribute="bottom" constant="10" id="oTs-qZ-SRD"/>
+                    <constraint firstItem="7CC-Lg-LWV" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="sSY-Ar-yzq"/>
+                    <constraint firstItem="jGX-MF-dAK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="40" id="tdz-t3-ykx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="backgroundImage" destination="JHo-On-eYR" id="NB6-FA-0G6"/>
+                <outlet property="buyBTN" destination="7CC-Lg-LWV" id="cPW-4J-zSK"/>
+                <outlet property="priceLabel" destination="jGX-MF-dAK" id="n8j-W2-dfl"/>
+                <outlet property="ticketcountLabel" destination="u4M-7j-9RV" id="bMe-ct-toK"/>
+                <outlet property="vCell" destination="H2p-sc-9uM" id="Ym7-Rg-4WY"/>
+            </connections>
+            <point key="canvasLocation" x="25" y="83"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ticket list background" width="341" height="120"/>
+    </resources>
+</document>

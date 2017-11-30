@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mark Simonson - Proxima Nova Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationView">
+            <connections>
+                <outlet property="nothingview" destination="gmL-rv-G1P" id="U12-Tn-xY6"/>
+                <outlet property="tableview" destination="635-23-eo6" id="FKh-iR-E5q"/>
+                <outlet property="view" destination="iN0-l3-epB" id="8PV-3O-xzs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gmL-rv-G1P" userLabel="nothing view">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no notification bell" translatesAutoresizingMaskIntoConstraints="NO" id="Wxy-uU-eco">
+                            <rect key="frame" x="152" y="192.5" width="70" height="101"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="Wxy-uU-eco" secondAttribute="height" multiplier="135:195" id="RuA-Lc-QRw"/>
+                                <constraint firstAttribute="width" constant="70" id="Rzm-8t-Cih"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no notifications" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lW4-3H-7Ci">
+                            <rect key="frame" x="0.0" y="313.5" width="375" height="23.5"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="lW4-3H-7Ci" secondAttribute="trailing" id="0hs-aJ-kzY"/>
+                        <constraint firstItem="lW4-3H-7Ci" firstAttribute="leading" secondItem="gmL-rv-G1P" secondAttribute="leading" id="3Ph-9u-e8w"/>
+                        <constraint firstItem="lW4-3H-7Ci" firstAttribute="top" secondItem="Wxy-uU-eco" secondAttribute="bottom" constant="20" id="Ahg-uV-jcH"/>
+                        <constraint firstItem="Wxy-uU-eco" firstAttribute="centerY" secondItem="gmL-rv-G1P" secondAttribute="centerY" id="OPA-uk-zxW"/>
+                        <constraint firstItem="Wxy-uU-eco" firstAttribute="centerX" secondItem="gmL-rv-G1P" secondAttribute="centerX" id="fhu-so-lCO"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="635-23-eo6">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Loh-7v-roW"/>
+                        <outlet property="delegate" destination="-1" id="9ga-pV-Tyz"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="635-23-eo6" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1Ne-ZT-zRM"/>
+                <constraint firstItem="635-23-eo6" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6Dr-TZ-DTc"/>
+                <constraint firstItem="gmL-rv-G1P" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Bb7-Tj-bYh"/>
+                <constraint firstItem="gmL-rv-G1P" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="FPl-k0-odg"/>
+                <constraint firstAttribute="bottom" secondItem="gmL-rv-G1P" secondAttribute="bottom" id="Ngx-5J-dsJ"/>
+                <constraint firstAttribute="bottom" secondItem="635-23-eo6" secondAttribute="bottom" id="Ps8-hp-m4z"/>
+                <constraint firstAttribute="trailing" secondItem="635-23-eo6" secondAttribute="trailing" id="RhZ-Fv-tZR"/>
+                <constraint firstAttribute="trailing" secondItem="gmL-rv-G1P" secondAttribute="trailing" id="hVC-Mj-7Nz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="no notification bell" width="67" height="97"/>
+    </resources>
+</document>

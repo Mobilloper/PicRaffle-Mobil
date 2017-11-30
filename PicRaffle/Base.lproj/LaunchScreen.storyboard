@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
+                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="Dll-PP-idr" userLabel="background">
+                                <rect key="frame" x="0.0" y="-1" width="375" height="668"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logobackround" translatesAutoresizingMaskIntoConstraints="NO" id="033-px-kz6" userLabel="logobackround">
+                                <rect key="frame" x="43" y="189" width="289" height="289"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="033-px-kz6" secondAttribute="height" multiplier="1:1" id="sRw-qB-0PD"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="agX-KL-vS4">
+                                <rect key="frame" x="57" y="231" width="262" height="205"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="agX-KL-vS4" secondAttribute="height" multiplier="401:313" id="ba2-pz-n1y"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="agX-KL-vS4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="5O8-cU-WyV"/>
+                            <constraint firstItem="Dll-PP-idr" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" id="Emz-tA-7ct"/>
+                            <constraint firstItem="033-px-kz6" firstAttribute="width" secondItem="agX-KL-vS4" secondAttribute="width" multiplier="1.1:1" id="Rgk-cS-aqB"/>
+                            <constraint firstItem="Dll-PP-idr" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YcO-fb-rBD"/>
+                            <constraint firstItem="033-px-kz6" firstAttribute="centerX" secondItem="agX-KL-vS4" secondAttribute="centerX" id="dXg-Vu-z8Y"/>
+                            <constraint firstItem="Dll-PP-idr" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="h82-EJ-W1S"/>
+                            <constraint firstItem="agX-KL-vS4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="rxU-mY-gzN"/>
+                            <constraint firstItem="agX-KL-vS4" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.7" id="xb2-fd-w3h"/>
+                            <constraint firstItem="033-px-kz6" firstAttribute="centerY" secondItem="agX-KL-vS4" secondAttribute="centerY" id="yZt-8X-cpA"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="260" y="370"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="376" height="668"/>
+        <image name="logo" width="200" height="156"/>
+        <image name="logobackround" width="242" height="242"/>
+    </resources>
+</document>

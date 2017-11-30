@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mark Simonson - Proxima Nova Bold.otf">
+            <string>ProximaNova-Bold</string>
+        </array>
+        <array key="Mark Simonson - Proxima Nova Light.otf">
+            <string>ProximaNova-Light</string>
+        </array>
+        <array key="Mark Simonson - Proxima Nova Semibold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardView">
+            <connections>
+                <outlet property="carousel" destination="DRI-wO-K3s" id="apY-vQ-ngt"/>
+                <outlet property="ticket_user_tv" destination="LRv-ht-opZ" id="R8Q-Ni-EWx"/>
+                <outlet property="today_prize_tv" destination="Hek-UW-L0o" id="tNz-RB-O9T"/>
+                <outlet property="view" destination="iN0-l3-epB" id="AMu-Up-dXH"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleAspectFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="487"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eyP-dy-5nh" userLabel="info view">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farhan Fauzan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LRv-ht-opZ">
+                            <rect key="frame" x="40" y="0.0" width="132.5" height="42"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard location icon" translatesAutoresizingMaskIntoConstraints="NO" id="PHb-tf-9TS" userLabel="location icon">
+                            <rect key="frame" x="40" y="45.5" width="16.5" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="PHb-tf-9TS" secondAttribute="height" multiplier="19:24" id="Ua7-BR-8oe"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="California, United States" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOV-iN-s2y" userLabel="location label">
+                            <rect key="frame" x="70" y="46" width="141.5" height="21"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="13"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="March 24, 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bgx-yg-oR8">
+                            <rect key="frame" x="230" y="0.0" width="105" height="42"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="15"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="LRv-ht-opZ" firstAttribute="centerY" secondItem="eyP-dy-5nh" secondAttribute="centerY" multiplier="0.6" id="0Ao-0F-YhT"/>
+                        <constraint firstItem="Bgx-yg-oR8" firstAttribute="bottom" secondItem="LRv-ht-opZ" secondAttribute="bottom" id="2pK-k3-1oO"/>
+                        <constraint firstItem="LRv-ht-opZ" firstAttribute="height" secondItem="eyP-dy-5nh" secondAttribute="height" multiplier="0.6" id="5mP-9S-c7b"/>
+                        <constraint firstItem="LRv-ht-opZ" firstAttribute="leading" secondItem="eyP-dy-5nh" secondAttribute="leading" constant="40" id="JyW-oy-Y2I"/>
+                        <constraint firstItem="Bgx-yg-oR8" firstAttribute="top" secondItem="LRv-ht-opZ" secondAttribute="top" id="Qo1-25-HQv"/>
+                        <constraint firstItem="PHb-tf-9TS" firstAttribute="centerY" secondItem="eyP-dy-5nh" secondAttribute="centerY" multiplier="1.6" id="RNe-hO-Gni"/>
+                        <constraint firstAttribute="height" constant="70" id="aEg-uL-Wjc"/>
+                        <constraint firstItem="PHb-tf-9TS" firstAttribute="leading" secondItem="eyP-dy-5nh" secondAttribute="leading" constant="40" id="ayc-yD-sE8"/>
+                        <constraint firstAttribute="trailing" secondItem="Bgx-yg-oR8" secondAttribute="trailing" constant="40" id="fnr-Qe-mkw"/>
+                        <constraint firstItem="IOV-iN-s2y" firstAttribute="top" secondItem="PHb-tf-9TS" secondAttribute="top" id="jcV-Un-IMh"/>
+                        <constraint firstItem="IOV-iN-s2y" firstAttribute="bottom" secondItem="PHb-tf-9TS" secondAttribute="bottom" id="mbH-zw-qC8"/>
+                        <constraint firstItem="IOV-iN-s2y" firstAttribute="leading" secondItem="PHb-tf-9TS" secondAttribute="leading" constant="30" id="mla-fv-TA3"/>
+                        <constraint firstItem="PHb-tf-9TS" firstAttribute="height" secondItem="eyP-dy-5nh" secondAttribute="height" multiplier="0.3" id="tmt-De-1Py"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DRI-wO-K3s" userLabel="slide view" customClass="iCarousel">
+                    <rect key="frame" x="6" y="70" width="369" height="357"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="9mJ-Cl-Qpn"/>
+                        <outlet property="delegate" destination="-1" id="p2h-ep-G5R"/>
+                    </connections>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGI-At-xou" userLabel="contest view">
+                    <rect key="frame" x="0.0" y="427" width="375" height="60"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard contest icon" translatesAutoresizingMaskIntoConstraints="NO" id="umz-37-iIx" userLabel="contest icon">
+                            <rect key="frame" x="20" y="12" width="29.5" height="36"/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="umz-37-iIx" secondAttribute="height" multiplier="47:57" id="BwU-NV-pxj"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TODAY'S PRIZE $1000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hek-UW-L0o">
+                            <rect key="frame" x="70" y="12" width="155.5" height="21.5"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y3I-jL-1s7" userLabel="join button">
+                            <rect key="frame" x="285" y="12" width="70" height="36"/>
+                            <color key="backgroundColor" red="0.50261491537094116" green="0.87066918611526489" blue="0.42999446392059326" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="70" id="YIZ-aV-nkf"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
+                            <state key="normal" title="Join">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="18"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="actionJoinBTN:" destination="-1" eventType="touchUpInside" id="f7R-C9-HDY"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join today's contest" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFp-yG-kT1">
+                            <rect key="frame" x="70" y="33.5" width="118" height="14.5"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="13"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.95686274509803915" green="0.95686274509803915" blue="0.95686274509803915" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="pFp-yG-kT1" firstAttribute="height" secondItem="umz-37-iIx" secondAttribute="height" multiplier="0.4" id="5Op-JB-dwt"/>
+                        <constraint firstItem="pFp-yG-kT1" firstAttribute="bottom" secondItem="umz-37-iIx" secondAttribute="bottom" id="QFm-kh-O87"/>
+                        <constraint firstItem="umz-37-iIx" firstAttribute="height" secondItem="gGI-At-xou" secondAttribute="height" multiplier="0.6" id="dxF-Mx-uO9"/>
+                        <constraint firstItem="pFp-yG-kT1" firstAttribute="leading" secondItem="umz-37-iIx" secondAttribute="leading" constant="50" id="eoN-iS-hkK"/>
+                        <constraint firstAttribute="height" constant="60" id="gFt-Dp-gsh"/>
+                        <constraint firstItem="Hek-UW-L0o" firstAttribute="height" secondItem="umz-37-iIx" secondAttribute="height" multiplier="0.6" id="gZm-Xw-ghy"/>
+                        <constraint firstItem="y3I-jL-1s7" firstAttribute="height" secondItem="gGI-At-xou" secondAttribute="height" multiplier="0.6" id="h0x-TN-KVe"/>
+                        <constraint firstItem="y3I-jL-1s7" firstAttribute="centerY" secondItem="gGI-At-xou" secondAttribute="centerY" id="h7P-0Y-Fu4"/>
+                        <constraint firstItem="Hek-UW-L0o" firstAttribute="leading" secondItem="umz-37-iIx" secondAttribute="leading" constant="50" id="iZy-Lm-376"/>
+                        <constraint firstAttribute="trailing" secondItem="y3I-jL-1s7" secondAttribute="trailing" constant="20" id="oZK-Kz-FcX"/>
+                        <constraint firstItem="Hek-UW-L0o" firstAttribute="top" secondItem="umz-37-iIx" secondAttribute="top" id="qvg-mA-JSI"/>
+                        <constraint firstItem="umz-37-iIx" firstAttribute="leading" secondItem="gGI-At-xou" secondAttribute="leading" constant="20" id="sZf-73-tIH"/>
+                        <constraint firstItem="umz-37-iIx" firstAttribute="centerY" secondItem="gGI-At-xou" secondAttribute="centerY" id="sth-eh-bDn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="gGI-At-xou" secondAttribute="bottom" id="0P8-o1-3T9"/>
+                <constraint firstItem="gGI-At-xou" firstAttribute="top" secondItem="DRI-wO-K3s" secondAttribute="bottom" id="Lxw-an-yg3"/>
+                <constraint firstAttribute="trailing" secondItem="eyP-dy-5nh" secondAttribute="trailing" id="VWP-R3-OOg"/>
+                <constraint firstItem="eyP-dy-5nh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="l5E-OC-dSS"/>
+                <constraint firstItem="gGI-At-xou" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ot3-LX-XAZ"/>
+                <constraint firstAttribute="trailing" secondItem="gGI-At-xou" secondAttribute="trailing" id="syx-yR-NiX"/>
+                <constraint firstItem="eyP-dy-5nh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tcG-xy-5EG"/>
+                <constraint firstItem="DRI-wO-K3s" firstAttribute="top" secondItem="eyP-dy-5nh" secondAttribute="bottom" id="wsY-aO-Wmy"/>
+                <constraint firstAttribute="trailing" secondItem="DRI-wO-K3s" secondAttribute="trailing" id="yb2-8I-6k2"/>
+                <constraint firstItem="DRI-wO-K3s" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="6" id="yx6-E4-Fmb"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="24.5" y="51.5"/>
+        </view>
+        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="3aG-s8-IpE">
+            <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+        </imageView>
+    </objects>
+    <resources>
+        <image name="dashboard contest icon" width="23" height="28"/>
+        <image name="dashboard location icon" width="9" height="12"/>
+    </resources>
+</document>

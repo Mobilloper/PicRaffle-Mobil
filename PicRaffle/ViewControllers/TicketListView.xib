@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TicketListView">
+            <connections>
+                <outlet property="tableview" destination="CHY-PL-yKT" id="rBr-gc-9Gk"/>
+                <outlet property="view" destination="iN0-l3-epB" id="F8l-mm-fVi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="FjC-lH-8ep">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CHY-PL-yKT" customClass="TPKeyboardAvoidingTableView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="597"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="Gs0-ww-8eP"/>
+                        <outlet property="delegate" destination="-1" id="P3w-8c-Wnz"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="FjC-lH-8ep" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Qyv-aH-YSg"/>
+                <constraint firstItem="CHY-PL-yKT" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="VqP-Q0-1ue"/>
+                <constraint firstItem="CHY-PL-yKT" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="Wh1-q9-1fd"/>
+                <constraint firstItem="FjC-lH-8ep" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="efH-FU-XPp"/>
+                <constraint firstAttribute="bottom" secondItem="FjC-lH-8ep" secondAttribute="bottom" id="eol-JF-vNl"/>
+                <constraint firstAttribute="trailing" secondItem="FjC-lH-8ep" secondAttribute="trailing" id="fst-zc-ydB"/>
+                <constraint firstItem="CHY-PL-yKT" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="hNF-n5-v0m"/>
+                <constraint firstItem="CHY-PL-yKT" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="uer-Yp-sdi"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="376" height="668"/>
+    </resources>
+</document>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Mark Simonson - Proxima Nova Light.otf">
+            <string>ProximaNova-Light</string>
+        </array>
+        <array key="Mark Simonson - Proxima Nova Regular.otf">
+            <string>ProximaNova-Regular</string>
+        </array>
+        <array key="Mark Simonson - Proxima Nova Semibold.otf">
+            <string>ProximaNova-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivityView">
+            <connections>
+                <outlet property="galleryCollectionView" destination="T7a-H3-SqG" id="FiJ-Ju-PPb"/>
+                <outlet property="today_prize" destination="vjs-DP-xHT" id="oab-M0-WIH"/>
+                <outlet property="view" destination="iN0-l3-epB" id="1KQ-dn-PUb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="489"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvv-tf-18Z" userLabel="today prize view">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today Prize" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8N6-Y6-c2S">
+                            <rect key="frame" x="40" y="0.0" width="103.5" height="50"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vjs-DP-xHT">
+                            <rect key="frame" x="235" y="5" width="100" height="40"/>
+                            <color key="backgroundColor" red="1" green="0.94117647058823528" blue="0.84313725490196079" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="Ny7-TN-KkZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="25"/>
+                            <color key="textColor" red="1" green="0.76862745098039209" blue="0.40784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="20"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="today prize mark" translatesAutoresizingMaskIntoConstraints="NO" id="bjJ-du-zS8">
+                            <rect key="frame" x="152" y="2" width="70" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vjs-DP-xHT" firstAttribute="centerY" secondItem="qvv-tf-18Z" secondAttribute="centerY" id="Ff4-Pw-2rR"/>
+                        <constraint firstItem="8N6-Y6-c2S" firstAttribute="centerY" secondItem="qvv-tf-18Z" secondAttribute="centerY" id="PNE-gN-1XQ"/>
+                        <constraint firstItem="8N6-Y6-c2S" firstAttribute="leading" secondItem="qvv-tf-18Z" secondAttribute="leading" constant="40" id="Pqr-kP-ff4"/>
+                        <constraint firstItem="8N6-Y6-c2S" firstAttribute="height" secondItem="qvv-tf-18Z" secondAttribute="height" id="Wua-0D-TOI"/>
+                        <constraint firstItem="vjs-DP-xHT" firstAttribute="height" secondItem="qvv-tf-18Z" secondAttribute="height" multiplier="0.8" id="Wxc-LG-hgV"/>
+                        <constraint firstAttribute="height" constant="50" id="f5u-AE-T66"/>
+                        <constraint firstAttribute="trailing" secondItem="vjs-DP-xHT" secondAttribute="trailing" constant="40" id="liJ-8s-qu0"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="count down background" translatesAutoresizingMaskIntoConstraints="NO" id="FSI-I7-hjw" userLabel="contest">
+                    <rect key="frame" x="18.5" y="70" width="337.5" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="9lt-Nc-phV"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contest end" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ii-dU-ZrX">
+                    <rect key="frame" x="38.5" y="93" width="110" height="23.5"/>
+                    <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00:15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUg-eU-tOJ">
+                    <rect key="frame" x="252.5" y="90" width="83.5" height="29.5"/>
+                    <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="25"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Past Winner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32p-QE-ccy">
+                    <rect key="frame" x="20" y="160" width="108.5" height="23.5"/>
+                    <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="20"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="T7a-H3-SqG">
+                    <rect key="frame" x="20" y="193.5" width="335" height="295.5"/>
+                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ew1-W9-0KW">
+                        <size key="itemSize" width="80" height="80"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="E7L-9F-4IN"/>
+                        <outlet property="delegate" destination="-1" id="cPt-VJ-gP0"/>
+                    </connections>
+                </collectionView>
+            </subviews>
+            <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="qvv-tf-18Z" secondAttribute="trailing" id="3Dl-k5-VyI"/>
+                <constraint firstItem="T7a-H3-SqG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="4GF-vQ-YsI"/>
+                <constraint firstItem="T7a-H3-SqG" firstAttribute="top" secondItem="32p-QE-ccy" secondAttribute="bottom" constant="10" id="5aQ-8s-Xyf"/>
+                <constraint firstItem="FSI-I7-hjw" firstAttribute="centerX" secondItem="qvv-tf-18Z" secondAttribute="centerX" id="8Qo-25-T5X"/>
+                <constraint firstItem="vUg-eU-tOJ" firstAttribute="trailing" secondItem="FSI-I7-hjw" secondAttribute="trailing" constant="-20" id="CeU-2I-EyI"/>
+                <constraint firstItem="8ii-dU-ZrX" firstAttribute="leading" secondItem="FSI-I7-hjw" secondAttribute="leading" constant="20" id="HmB-x5-nbm"/>
+                <constraint firstItem="qvv-tf-18Z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="N9B-Rl-Not"/>
+                <constraint firstItem="8ii-dU-ZrX" firstAttribute="centerY" secondItem="FSI-I7-hjw" secondAttribute="centerY" multiplier="0.95" id="bNJ-J1-dyN"/>
+                <constraint firstItem="32p-QE-ccy" firstAttribute="top" secondItem="FSI-I7-hjw" secondAttribute="bottom" constant="10" id="gq3-Rq-7iP"/>
+                <constraint firstItem="32p-QE-ccy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="h1V-gd-u0U"/>
+                <constraint firstItem="FSI-I7-hjw" firstAttribute="width" secondItem="qvv-tf-18Z" secondAttribute="width" multiplier="0.9" id="hbV-Jk-EXz"/>
+                <constraint firstAttribute="trailing" secondItem="T7a-H3-SqG" secondAttribute="trailing" constant="20" id="jfr-zG-Sb7"/>
+                <constraint firstAttribute="bottom" secondItem="T7a-H3-SqG" secondAttribute="bottom" id="kzO-Ku-nXY"/>
+                <constraint firstItem="FSI-I7-hjw" firstAttribute="top" secondItem="qvv-tf-18Z" secondAttribute="bottom" constant="20" id="nrm-Ej-WRA"/>
+                <constraint firstItem="vUg-eU-tOJ" firstAttribute="centerY" secondItem="8ii-dU-ZrX" secondAttribute="centerY" id="pZv-ro-m9h"/>
+                <constraint firstItem="qvv-tf-18Z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sPR-xT-3uz"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="26.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="count down background" width="359" height="70"/>
+        <image name="today prize mark" width="86" height="61"/>
+    </resources>
+</document>
