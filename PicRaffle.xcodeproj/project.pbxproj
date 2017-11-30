@@ -125,9 +125,6 @@
 		89C3B9601F7F50C800E733EE /* DashboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89C3B95F1F7F50C800E733EE /* DashboardView.m */; };
 		89FFC2481F802717001213F8 /* iCarousel.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FFC2461F802717001213F8 /* iCarousel.m */; };
 		89FFC2491F802717001213F8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89FFC2471F802717001213F8 /* Info.plist */; };
-		89FFC24D1F802AD7001213F8 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89FFC24B1F802AD7001213F8 /* logo@2x.png */; };
-		89FFC24E1F802AD7001213F8 /* page.png in Resources */ = {isa = PBXBuildFile; fileRef = 89FFC24C1F802AD7001213F8 /* page.png */; };
-		89FFC2501F802EE6001213F8 /* dashboard image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 89FFC24F1F802EE6001213F8 /* dashboard image@2x.png */; };
 		89FFC2531F803DE9001213F8 /* NotificationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FFC2521F803DE9001213F8 /* NotificationView.m */; };
 		89FFC2551F803E05001213F8 /* NotificationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89FFC2541F803E05001213F8 /* NotificationView.xib */; };
 		89FFC2581F80C52E001213F8 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = 89FFC2571F80C52E001213F8 /* ProfileView.m */; };
@@ -426,9 +423,6 @@
 		89FFC2451F802717001213F8 /* iCarousel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iCarousel.h; sourceTree = "<group>"; };
 		89FFC2461F802717001213F8 /* iCarousel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iCarousel.m; sourceTree = "<group>"; };
 		89FFC2471F802717001213F8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		89FFC24B1F802AD7001213F8 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
-		89FFC24C1F802AD7001213F8 /* page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page.png; sourceTree = "<group>"; };
-		89FFC24F1F802EE6001213F8 /* dashboard image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashboard image@2x.png"; sourceTree = "<group>"; };
 		89FFC2511F803DE9001213F8 /* NotificationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NotificationView.h; path = ViewControllers/NotificationView.h; sourceTree = "<group>"; };
 		89FFC2521F803DE9001213F8 /* NotificationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NotificationView.m; path = ViewControllers/NotificationView.m; sourceTree = "<group>"; };
 		89FFC2541F803E05001213F8 /* NotificationView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NotificationView.xib; sourceTree = "<group>"; };
@@ -980,9 +974,6 @@
 			isa = PBXGroup;
 			children = (
 				89FFC28E1F85D471001213F8 /* font */,
-				89FFC24F1F802EE6001213F8 /* dashboard image@2x.png */,
-				89FFC24B1F802AD7001213F8 /* logo@2x.png */,
-				89FFC24C1F802AD7001213F8 /* page.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -1154,9 +1145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89FFC29F1F8600EC001213F8 /* NavigationBar.xib in Resources */,
-				89FFC24D1F802AD7001213F8 /* logo@2x.png in Resources */,
 				89FFC2551F803E05001213F8 /* NotificationView.xib in Resources */,
-				89FFC24E1F802AD7001213F8 /* page.png in Resources */,
 				89A06FD91F7C43A7000B0DA2 /* LaunchScreen.storyboard in Resources */,
 				89FFC28D1F821281001213F8 /* TicketListTableViewCell.xib in Resources */,
 				89208E321F88979D001FC66A /* TOCropViewControllerLocalizable.strings in Resources */,
@@ -1170,7 +1159,6 @@
 				89FFC2761F81A539001213F8 /* AddPhotoView.xib in Resources */,
 				89A06FD41F7C43A7000B0DA2 /* Main.storyboard in Resources */,
 				89FFC2801F81F287001213F8 /* ActivityCollectionViewCell.xib in Resources */,
-				89FFC2501F802EE6001213F8 /* dashboard image@2x.png in Resources */,
 				89FFC2491F802717001213F8 /* Info.plist in Resources */,
 				89208E331F88979D001FC66A /* Info.plist in Resources */,
 				898A5E091FC3AE7B00B7005E /* NotificationTableViewCell.xib in Resources */,

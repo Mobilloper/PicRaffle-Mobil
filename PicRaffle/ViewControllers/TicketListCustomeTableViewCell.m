@@ -62,7 +62,7 @@
 {
     NSString *responseString = [request responseString];
     NSLog(@"%@",responseString);
-    NSMutableDictionary *values=(NSMutableDictionary *) [responseString JSONValue];
+//    NSMutableDictionary *values=(NSMutableDictionary *) [responseString JSONValue];
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];

@@ -95,7 +95,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *temp = [tableView cellForRowAtIndexPath:indexPath];
+//    UITableViewCell *temp = [tableView cellForRowAtIndexPath:indexPath];
     
 }
 
