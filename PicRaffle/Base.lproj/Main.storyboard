@@ -1499,13 +1499,13 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="90.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cmw-gz-4XI">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="45"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="45.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ieP-DO-CSW">
-                                                                                <rect key="frame" x="0.0" y="45" width="300" height="45.5"/>
+                                                                                <rect key="frame" x="0.0" y="45.5" width="300" height="45"/>
                                                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1525,7 +1525,7 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQv-aQ-VJH">
-                                                        <rect key="frame" x="37" y="229" width="300" height="45"/>
+                                                        <rect key="frame" x="37" y="229" width="300" height="45.5"/>
                                                         <color key="backgroundColor" red="0.3455942273" green="0.52979224920000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Change">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1674,13 +1674,13 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                                                         <rect key="frame" x="0.0" y="0.0" width="300" height="90.5"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ck6-TS-TaV">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="45"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="300" height="45.5"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jyQ-Yc-xR8">
-                                                                                <rect key="frame" x="0.0" y="45" width="300" height="45.5"/>
+                                                                                <rect key="frame" x="0.0" y="45.5" width="300" height="45"/>
                                                                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1700,7 +1700,7 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uym-0l-lo2">
-                                                        <rect key="frame" x="37.5" y="237" width="300" height="45.5"/>
+                                                        <rect key="frame" x="37.5" y="237" width="300" height="46"/>
                                                         <color key="backgroundColor" red="0.3455942273" green="0.52979224920000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Change">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
