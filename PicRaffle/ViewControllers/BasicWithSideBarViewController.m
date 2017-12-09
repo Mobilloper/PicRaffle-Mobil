@@ -53,12 +53,15 @@
     self.superViews = [NSMutableDictionary dictionary];
     [self.superViews setObject:self.tabBar forKey:@"tabbar"];
     [self.superViews setObject:self.addPhotoView forKey:@"addphotoview"];
+    
+    [self.navigationbar setNotificationNumber:[UIApplication sharedApplication].applicationIconBadgeNumber] ;
    
     AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     appdelegate.notificationView = self.notificationView;
     appdelegate.dashboardView = self.dashboardView;
     appdelegate.activityView = self.activityView;
     appdelegate.ticketListView = self.buyTicketListView;
+    appdelegate.navigationBar = self.navigationbar;
     
 }
 

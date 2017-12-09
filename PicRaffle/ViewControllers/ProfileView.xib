@@ -21,6 +21,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileView">
             <connections>
                 <outlet property="galleryCollectionView" destination="AA9-TT-Zgk" id="qdF-NS-bnk"/>
+                <outlet property="location" destination="dJa-n7-dqC" id="aO7-xO-Kvf"/>
                 <outlet property="profileImage" destination="7wT-zW-34Y" id="Nnb-ra-tbo"/>
                 <outlet property="user_name_tv" destination="EUI-ur-6ii" id="B7k-xn-wwW"/>
                 <outlet property="view" destination="iN0-l3-epB" id="HEf-iZ-dTv"/>
@@ -34,7 +35,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jL1-dJ-iU1" userLabel="infoview">
                     <rect key="frame" x="20" y="0.0" width="335" height="120"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile image" translatesAutoresizingMaskIntoConstraints="NO" id="7wT-zW-34Y" userLabel="profile image">
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile image" translatesAutoresizingMaskIntoConstraints="NO" id="7wT-zW-34Y" userLabel="profile image">
                             <rect key="frame" x="8" y="0.0" width="120" height="120"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -42,6 +43,12 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oIY-fD-IKZ">
+                            <rect key="frame" x="8" y="0.0" width="120" height="120"/>
+                            <connections>
+                                <action selector="actionImageClick:" destination="-1" eventType="touchUpInside" id="B7M-eo-iSV"/>
+                            </connections>
+                        </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farhan Fauzan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUI-ur-6ii" userLabel="profile name label">
                             <rect key="frame" x="148" y="0.0" width="132.5" height="23.5"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
@@ -74,7 +81,10 @@
                         <constraint firstItem="INo-XF-KVe" firstAttribute="top" secondItem="EUI-ur-6ii" secondAttribute="bottom" constant="5" id="BkN-JM-GPS"/>
                         <constraint firstItem="7wT-zW-34Y" firstAttribute="centerY" secondItem="jL1-dJ-iU1" secondAttribute="centerY" id="By3-nT-zpC"/>
                         <constraint firstItem="EUI-ur-6ii" firstAttribute="top" secondItem="7wT-zW-34Y" secondAttribute="top" id="Ckc-uE-z8E"/>
+                        <constraint firstItem="oIY-fD-IKZ" firstAttribute="height" secondItem="7wT-zW-34Y" secondAttribute="height" id="HQw-Fy-ABr"/>
                         <constraint firstItem="7wT-zW-34Y" firstAttribute="height" secondItem="jL1-dJ-iU1" secondAttribute="height" id="Hrg-d3-r4U"/>
+                        <constraint firstItem="oIY-fD-IKZ" firstAttribute="centerY" secondItem="7wT-zW-34Y" secondAttribute="centerY" id="L3B-Ha-KWI"/>
+                        <constraint firstItem="oIY-fD-IKZ" firstAttribute="width" secondItem="7wT-zW-34Y" secondAttribute="width" id="OOl-19-FaE"/>
                         <constraint firstItem="dJa-n7-dqC" firstAttribute="bottom" secondItem="INo-XF-KVe" secondAttribute="bottom" id="ObF-LC-O9N"/>
                         <constraint firstItem="7wT-zW-34Y" firstAttribute="leading" secondItem="jL1-dJ-iU1" secondAttribute="leading" constant="8" id="VWB-Lr-akL"/>
                         <constraint firstItem="dJa-n7-dqC" firstAttribute="top" secondItem="INo-XF-KVe" secondAttribute="top" id="Wi1-RE-Q1O"/>
@@ -83,6 +93,7 @@
                         <constraint firstItem="dh6-Cc-1cr" firstAttribute="leading" secondItem="7wT-zW-34Y" secondAttribute="trailing" constant="20" id="kU2-3f-Z6w"/>
                         <constraint firstItem="EUI-ur-6ii" firstAttribute="leading" secondItem="7wT-zW-34Y" secondAttribute="trailing" constant="20" id="ny7-cX-y8r"/>
                         <constraint firstItem="7wT-zW-34Y" firstAttribute="width" secondItem="jL1-dJ-iU1" secondAttribute="height" multiplier="1:1" id="t2j-GD-xpT"/>
+                        <constraint firstItem="oIY-fD-IKZ" firstAttribute="centerX" secondItem="7wT-zW-34Y" secondAttribute="centerX" id="uSZ-b8-S1V"/>
                         <constraint firstAttribute="height" constant="120" id="xWA-po-lnx"/>
                         <constraint firstItem="INo-XF-KVe" firstAttribute="leading" secondItem="7wT-zW-34Y" secondAttribute="trailing" constant="20" id="zFh-l2-i1L"/>
                     </constraints>

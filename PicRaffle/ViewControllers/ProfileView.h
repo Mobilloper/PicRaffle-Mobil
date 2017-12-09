@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 @property (weak, nonatomic) IBOutlet UICollectionView *galleryCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *user_name_tv;
+@property (weak, nonatomic) IBOutlet UILabel *location;
 
 @property NSMutableDictionary *user_info;
 @property NSMutableArray *mytickets;

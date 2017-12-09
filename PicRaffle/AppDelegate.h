@@ -13,6 +13,7 @@
 #import "DashboardView.h"
 #import "ActivityView.h"
 #import "TicketListView.h"
+#import "NavigationBar.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate, UNUserNotificationCenterDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
@@ -20,5 +21,5 @@
 @property DashboardView *dashboardView;
 @property ActivityView *activityView;
 @property TicketListView *ticketListView;
-
+@property NavigationBar *navigationBar;
 @end

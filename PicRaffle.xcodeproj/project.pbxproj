@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		084D7C7799542052C8D51EA9 /* libPods-PicRaffleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD1E2C6D8305257A60428AB /* libPods-PicRaffleUITests.a */; };
-		7ACC2EAD341C7C838A9DF4C2 /* libPods-PicRaffle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5167100E71CDCB378136DEA1 /* libPods-PicRaffle.a */; };
+		212303B536C78E659A731038 /* libPods-PicRaffleUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA4B89CDF3AF1DB580305E4C /* libPods-PicRaffleUITests.a */; };
+		65B1C31E3CB0265524344278 /* libPods-PicRaffleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C261470821EFC0208C044CCA /* libPods-PicRaffleTests.a */; };
 		89132D0B1FBFFC3C00DDE125 /* ChangeEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89132D0A1FBFFC3C00DDE125 /* ChangeEmailViewController.m */; };
 		89132D0E1FC0090C00DDE125 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89132D0D1FC0090C00DDE125 /* ChangePasswordViewController.m */; };
 		89208E321F88979D001FC66A /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89208E071F88979D001FC66A /* TOCropViewControllerLocalizable.strings */; };
@@ -153,7 +153,7 @@
 		89FFC29B1F85D472001213F8 /* Mark Simonson - Proxima Nova Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89FFC2941F85D472001213F8 /* Mark Simonson - Proxima Nova Semibold.otf */; };
 		89FFC29C1F85D472001213F8 /* Mark Simonson - Proxima Nova Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = 89FFC2951F85D472001213F8 /* Mark Simonson - Proxima Nova Thin.otf */; };
 		89FFC29F1F8600EC001213F8 /* NavigationBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 89C3B94C1F7EBBC600E733EE /* NavigationBar.xib */; };
-		BDA486E909338E92AF201FBB /* libPods-PicRaffleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10724D00E2D01FE04BA4B194 /* libPods-PicRaffleTests.a */; };
+		B5A4682C72E09FA4EA7CDD79 /* libPods-PicRaffle.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7588367CC6325282A27C5AA0 /* libPods-PicRaffle.a */; };
 		E23581341FBD2AE500CC8C73 /* ChangeVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E23581331FBD2AE500CC8C73 /* ChangeVC.m */; };
 		E23581371FBD2AFE00CC8C73 /* WithdrawVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E23581361FBD2AFE00CC8C73 /* WithdrawVC.m */; };
 /* End PBXBuildFile section */
@@ -177,10 +177,9 @@
 
 /* Begin PBXFileReference section */
 		087E7AF756C56B228B9BD351 /* Pods-PicRaffle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicRaffle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicRaffle/Pods-PicRaffle.debug.xcconfig"; sourceTree = "<group>"; };
-		10724D00E2D01FE04BA4B194 /* libPods-PicRaffleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicRaffleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		19910CD01003E8BF987A8ACC /* Pods-PicRaffleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicRaffleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicRaffleTests/Pods-PicRaffleTests.release.xcconfig"; sourceTree = "<group>"; };
 		2DF813CF868EF2AD3541EB34 /* Pods-PicRaffleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicRaffleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicRaffleTests/Pods-PicRaffleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5167100E71CDCB378136DEA1 /* libPods-PicRaffle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicRaffle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7588367CC6325282A27C5AA0 /* libPods-PicRaffle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicRaffle.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7BBDF0F04FF77CE7D6D5CD3B /* Pods-PicRaffleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicRaffleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PicRaffleUITests/Pods-PicRaffleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		89132D091FBFFC3C00DDE125 /* ChangeEmailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeEmailViewController.h; sourceTree = "<group>"; };
 		89132D0A1FBFFC3C00DDE125 /* ChangeEmailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeEmailViewController.m; sourceTree = "<group>"; };
@@ -462,7 +461,8 @@
 		89FFC2941F85D472001213F8 /* Mark Simonson - Proxima Nova Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Semibold.otf"; sourceTree = "<group>"; };
 		89FFC2951F85D472001213F8 /* Mark Simonson - Proxima Nova Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mark Simonson - Proxima Nova Thin.otf"; sourceTree = "<group>"; };
 		93A7301523F60CF622097B9C /* Pods-PicRaffleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicRaffleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicRaffleUITests/Pods-PicRaffleUITests.release.xcconfig"; sourceTree = "<group>"; };
-		9FD1E2C6D8305257A60428AB /* libPods-PicRaffleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicRaffleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA4B89CDF3AF1DB580305E4C /* libPods-PicRaffleUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicRaffleUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C261470821EFC0208C044CCA /* libPods-PicRaffleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PicRaffleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF90A5C71D159486FD4E6C08 /* Pods-PicRaffle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PicRaffle.release.xcconfig"; path = "Pods/Target Support Files/Pods-PicRaffle/Pods-PicRaffle.release.xcconfig"; sourceTree = "<group>"; };
 		E23581321FBD2AE500CC8C73 /* ChangeVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangeVC.h; sourceTree = "<group>"; };
 		E23581331FBD2AE500CC8C73 /* ChangeVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeVC.m; sourceTree = "<group>"; };
@@ -475,10 +475,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				892C9A231FA24F66009339CF /* CoreLocation.framework in Frameworks */,
 				892C9A291FA250FA009339CF /* Accelerate.framework in Frameworks */,
 				892C9A271FA24F8D009339CF /* SafariServices.framework in Frameworks */,
 				892C9A251FA24F7F009339CF /* CoreMedia.framework in Frameworks */,
-				892C9A231FA24F66009339CF /* CoreLocation.framework in Frameworks */,
 				892C9A441FA2C8D5009339CF /* libopencv_imgproc.a in Frameworks */,
 				892C9A211FA24F4F009339CF /* AVFoundation.framework in Frameworks */,
 				892C9A1F1FA24F40009339CF /* AudioToolbox.framework in Frameworks */,
@@ -494,7 +494,7 @@
 				8922C5DD1F86F7BE00F19F1F /* CoreGraphics.framework in Frameworks */,
 				8922C5DB1F86F7B500F19F1F /* Foundation.framework in Frameworks */,
 				8922C5D91F86F6A200F19F1F /* MessageUI.framework in Frameworks */,
-				7ACC2EAD341C7C838A9DF4C2 /* libPods-PicRaffle.a in Frameworks */,
+				B5A4682C72E09FA4EA7CDD79 /* libPods-PicRaffle.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,7 +502,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BDA486E909338E92AF201FBB /* libPods-PicRaffleTests.a in Frameworks */,
+				65B1C31E3CB0265524344278 /* libPods-PicRaffleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,7 +510,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				084D7C7799542052C8D51EA9 /* libPods-PicRaffleUITests.a in Frameworks */,
+				212303B536C78E659A731038 /* libPods-PicRaffleUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,9 +581,9 @@
 				8922C5DC1F86F7BE00F19F1F /* CoreGraphics.framework */,
 				8922C5DA1F86F7B500F19F1F /* Foundation.framework */,
 				8922C5D81F86F6A200F19F1F /* MessageUI.framework */,
-				5167100E71CDCB378136DEA1 /* libPods-PicRaffle.a */,
-				10724D00E2D01FE04BA4B194 /* libPods-PicRaffleTests.a */,
-				9FD1E2C6D8305257A60428AB /* libPods-PicRaffleUITests.a */,
+				7588367CC6325282A27C5AA0 /* libPods-PicRaffle.a */,
+				C261470821EFC0208C044CCA /* libPods-PicRaffleTests.a */,
+				BA4B89CDF3AF1DB580305E4C /* libPods-PicRaffleUITests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

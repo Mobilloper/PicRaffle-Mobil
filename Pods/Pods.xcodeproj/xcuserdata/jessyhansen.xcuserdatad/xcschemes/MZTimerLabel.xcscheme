@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '7AA957AA723292FFB22462E3116BAC55'
-               BlueprintName = 'BraintreeDropIn-Braintree-UIKit-Localization'
+               BlueprintIdentifier = 'C0DFED6495DEEA30A2F674CBDF789412'
+               BlueprintName = 'MZTimerLabel'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Braintree-UIKit-Localization.bundle'>
+               BuildableName = 'libMZTimerLabel.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

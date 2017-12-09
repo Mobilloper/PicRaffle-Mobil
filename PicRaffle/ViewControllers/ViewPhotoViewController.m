@@ -9,7 +9,7 @@
 #import "ViewPhotoViewController.h"
 #import "UIImageView+WebCache.h"
 
-@interface ViewPhotoViewController ()
+@interface ViewPhotoViewController ()<UIScrollViewDelegate>
 
 @end
 
@@ -24,7 +24,7 @@
             
         } else {
             
-            
+           
         }
     }];
 }
@@ -47,5 +47,11 @@
 - (IBAction)actionCloseBTN:(id)sender {
     //[self.navigationController popViewControllerAnimated:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark UIScrollViewDelegate
+
+- (nullable UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    return self.imageView;
 }
 @end

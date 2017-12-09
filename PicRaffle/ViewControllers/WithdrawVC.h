@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface WithdrawVC : UIViewController
+@property (weak, nonatomic) IBOutlet UILabel *balanceLabel;
 
+
+@property NSString *cur_email;
 @end

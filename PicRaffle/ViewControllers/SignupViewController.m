@@ -124,12 +124,7 @@
 -(void) returnedResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     NSDictionary *values=(NSDictionary *) [responseString JSONValue];
-    //    NSDictionary *weatherDictionary=[values objectForKey:@"success"];
-    //    [self parseLocalWeather:weatherDictionary];
-    //[self performSegueWithIdentifier:@"login_stb" sender:nil];
-    
     NSString *successcode = [values objectForKey:@"success"];
     if([successcode isEqualToString:@"0"])
     {
@@ -153,7 +148,7 @@
         [self presentViewController:alert animated:YES completion:nil];
     }
     else if([successcode isEqualToString:@"1"]){
-//        user_info = [values objectForKey:@"msg"];
+
         [[Global globalManager] setUserInfo:[values objectForKey:@"msg"]];
         
         BasicViewController *mainViewController = [BasicViewController new];
@@ -166,7 +161,6 @@
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];

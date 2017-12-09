@@ -65,6 +65,8 @@
 }
 - (IBAction)actionNotificationBT:(id)sender {
     //[self.superviewcontroller showNotificationView];
+    [self setNotificationNumber:0];
+    [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     [self.superviewcontroller showNotificationView];
 }
 

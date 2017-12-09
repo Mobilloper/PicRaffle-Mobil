@@ -96,7 +96,6 @@
 -(void) returnedResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     NSDictionary *values=(NSDictionary *) [responseString JSONValue];
     
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -117,15 +116,11 @@
     //Add your buttons to alert controller
     [alert addAction:noButton];
     [self presentViewController:alert animated:YES completion:nil];
-    
-    
 }
 
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     });

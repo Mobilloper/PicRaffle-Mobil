@@ -1,6 +1,6 @@
 CONFIGURATION_BUILD_DIR = $PODS_CONFIGURATION_BUILD_DIR/Braintree
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Braintree" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Braintree"
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Private" "${PODS_ROOT}/Headers/Private/Braintree" "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Braintree" "${PODS_ROOT}/Headers/Public/MZTimerLabel"
 LIBRARY_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Braintree/Braintree/PayPal/mSDK"
 OTHER_LDFLAGS = -ObjC -l"PayPalMobile-BT" -l"c++" -framework "AVFoundation" -framework "Accelerate" -framework "AddressBook" -framework "AudioToolbox" -framework "CoreLocation" -framework "CoreMedia" -framework "MessageUI" -framework "MobileCoreServices" -framework "SystemConfiguration" -framework "UIKit" -weak_framework "PassKit"
 PODS_BUILD_DIR = $BUILD_DIR

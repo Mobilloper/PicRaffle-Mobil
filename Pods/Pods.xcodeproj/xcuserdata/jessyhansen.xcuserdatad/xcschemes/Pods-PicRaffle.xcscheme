@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'A3DC64B3C3437BF5A15AE8656C6D89BF'
+               BlueprintIdentifier = 'C262CD9A8D25DBA4AA0C663A41591C55'
                BlueprintName = 'Pods-PicRaffle'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-PicRaffle.a'>

@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSMutableArray *items;
 @property NSMutableDictionary *user_info;
 @property NSMutableDictionary *today_contest;
+@property (weak, nonatomic) IBOutlet UILabel *location;
 
 
 -(void)customInit;

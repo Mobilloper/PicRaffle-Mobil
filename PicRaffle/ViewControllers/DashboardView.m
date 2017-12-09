@@ -9,6 +9,7 @@
 #import "DashboardView.h"
 #import "Global.h"
 #import "UIImageView+WebCache.h"
+#import "ViewPhotoViewController.h"
 
 @implementation DashboardView
 
@@ -228,14 +229,26 @@
 - (void)carousel:(__unused iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
     NSNumber *item = (self.items)[(NSUInteger)index];
-    NSLog(@"Tapped view number: %@", item);
+     NSDictionary *temp = [self.items objectAtIndex:index];
+     ViewPhotoViewController *vpVC = (ViewPhotoViewController *) [self.superViewController.storyboard instantiateViewControllerWithIdentifier:@"view_photo_std"];
+    
+    
+    NSString *finalURL = [NSString stringWithFormat:TICKET_IMAGE_FOLDER];
+    finalURL = [finalURL stringByAppendingString: [temp objectForKey:@"image_name"]];
+    NSURL *url = [NSURL URLWithString:finalURL];
+    
+    vpVC.imageUrl = url;
+    
+    self.superViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    self.superViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.superViewController presentViewController:vpVC animated:YES completion:nil];
 }
 
 - (void)carouselCurrentItemIndexDidChange:(__unused iCarousel *)carousel
 {
-    NSLog(@"Index: %@", @(self.carousel.currentItemIndex));
     NSDictionary *temp = [self.items objectAtIndex:self.carousel.currentItemIndex];
     self.ticket_user_tv.text = [temp objectForKey:@"name"];
+    self.location.text = [temp objectForKey:@"location"];
 }
 
 - (IBAction)actionJoinBTN:(id)sender {

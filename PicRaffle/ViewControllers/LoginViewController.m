@@ -8,8 +8,11 @@
 
 #import "LoginViewController.h"
 #import "BasicViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface LoginViewController ()<MFMailComposeViewControllerDelegate>
+@interface LoginViewController ()<MFMailComposeViewControllerDelegate, CLLocationManagerDelegate>
+
+@property CLLocationManager *locationManager;
 
 @end
 
@@ -18,14 +21,96 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [self demo];
-    
+
     UISwipeGestureRecognizer * swipeleft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(swipeleft:)];
     swipeleft.direction=UISwipeGestureRecognizerDirectionLeft;
     [self.view addGestureRecognizer:swipeleft];
     
     // Do any additional setup after loading the view.
+    
+    
+    
+    self.locationManager = [[CLLocationManager alloc]init];
+    self.locationManager.delegate = self;
+    [self.locationManager startUpdatingLocation];
+    
+    [self getLocation];
+    
+    [self checkSavedLoginInfo];
 }
+
+-(void)viewDidAppear:(BOOL)animated{
+    [self getLocation];
+}
+
+-(void)getLocation{
+    CLGeocoder *ceo = [[CLGeocoder alloc]init];
+    [self.locationManager requestWhenInUseAuthorization];
+    
+    CLLocationCoordinate2D coordinate;
+    coordinate.latitude = self.locationManager.location.coordinate.latitude;
+    coordinate.longitude = self.locationManager.location.coordinate.longitude;
+    
+    CLLocation *loc = [[CLLocation alloc] initWithLatitude:coordinate.latitude longitude:coordinate.longitude];
+    [ceo reverseGeocodeLocation:loc completionHandler:^(NSArray *placemarks, NSError *error){
+        CLPlacemark *placemark = [placemarks objectAtIndex:0];
+        [Global globalManager].locationCity = placemark.locality;
+        [Global globalManager].locationCountry = placemark.country;
+        [self.locationManager stopUpdatingLocation];
+    }];
+}
+
+-(void) checkSavedLoginInfo {
+    [[Global globalManager]loadUserLoginInfo];
+    if(![[Global globalManager].userName isEqualToString:@""] && ![[Global globalManager].userPassword isEqualToString:@""])
+    {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
+        finalURL = [finalURL stringByAppendingString: LOGIN_URL];
+        NSURL *url = [NSURL URLWithString:finalURL];
+        
+        self.tf_user.text = [Global globalManager].userName;
+        self.tf_password.text = [Global globalManager].userPassword;
+        
+        // comment
+        ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+        [request setPostValue:[Global globalManager].userName forKey:@"user_name_email"];
+        [request setPostValue:[Global globalManager].userPassword forKey:@"password"];
+        [request setDidFinishSelector:@selector(returnedResponselogin:)];
+        [request setDidFailSelector:@selector(failedResponse:)];
+        [request setDelegate:self];
+        [request startAsynchronous];
+        
+        
+    }
+}
+
+-(void) returnedResponselogin:(ASIHTTPRequest *)request
+{
+    NSString *responseString = [request responseString];
+    NSDictionary *values=(NSDictionary *) [responseString JSONValue];
+    NSString *successcode = [values objectForKey:@"success"];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if([successcode isEqualToString:@"0"])
+    {
+    }
+    else if([successcode isEqualToString:@"1"]){
+        
+        [[Global globalManager] setUserInfo:[values objectForKey:@"msg"]];
+        [[Global globalManager] loadTodayTicktets];
+        [[Global globalManager] loadMyTickets];
+        [[Global globalManager] loadPastWinners];
+        [[Global globalManager] loadTodayContestInfo];
+        [[Global globalManager] loadUserLoginInfo];
+        [[Global globalManager] loadBalance];
+        
+        BasicViewController *mainViewController = [BasicViewController new];
+        [self presentViewController:mainViewController animated:YES completion:nil];
+        
+    }
+    
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -74,7 +159,6 @@
     }
     else
     {
-        NSLog(@"This device cannot send email");
     }
 
     
@@ -115,7 +199,7 @@
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
             [request startAsynchronous];
-            [MBProgressHUD showHUDAddedTo:self.view animated:YES].labelText=@"Logging";
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             
         });
         
@@ -150,18 +234,13 @@
 -(void) returnedResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     NSDictionary *values=(NSDictionary *) [responseString JSONValue];
-//    NSDictionary *weatherDictionary=[values objectForKey:@"success"];
-    //    [self parseLocalWeather:weatherDictionary];
-    //[self performSegueWithIdentifier:@"login_stb" sender:nil];
-    
     NSString *successcode = [values objectForKey:@"success"];
     if([successcode isEqualToString:@"0"])
     {
-//        dispatch_async(dispatch_get_main_queue(), ^{
-            [MBProgressHUD hideHUDForView:self.view animated:YES];
-//        });
+
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+
         UIAlertController * alert = [UIAlertController
                                      alertControllerWithTitle:@"Warning!"
                                      message:[values objectForKey:@"msg"]
@@ -185,6 +264,12 @@
         [[Global globalManager] loadMyTickets];
         [[Global globalManager] loadPastWinners];
         [[Global globalManager] loadTodayContestInfo];
+        [[Global globalManager] loadBalance];
+        
+        [Global globalManager].userName = self.tf_user.text;
+        [Global globalManager].userPassword = self.tf_password.text;
+        [[Global globalManager] saveUserLoginInfo];
+        [[Global globalManager] loadUserLoginInfo];
         
         BasicViewController *mainViewController = [BasicViewController new];
         [self presentViewController:mainViewController animated:YES completion:nil];
@@ -196,12 +281,7 @@
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
-    
-//    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.view animated:YES];
-//    });
-    
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:@"Warning!"
                                  message:@"NetWork occurs error"

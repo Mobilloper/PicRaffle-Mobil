@@ -11,6 +11,9 @@
 #import "ViewPhotoViewController.h"
 #import "Global.h"
 #import "UIImageView+WebCache.h"
+#import "MZTimerLabel.h"
+#import "ASIFormDataRequest.h"
+#import "JSON.h"
 
 @implementation ActivityView
 
@@ -60,7 +63,43 @@
         self.pastwinners = nil;
     }
     self.today_contest = [[Global globalManager] getTodayContestInfo];
+    [self initTimer];
     [self addSubview: self.view];
+}
+
+-(void) initTimer
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
+            finalURL = [finalURL stringByAppendingString: GETLEFTSECONDSURL];
+            
+            NSURL *url = [NSURL URLWithString:finalURL];
+            
+            // comment
+            ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+            [request setDidFinishSelector:@selector(returnedResponse:)];
+            [request setDidFailSelector:@selector(failedResponse:)];
+            [request setDelegate:self];
+            [request startAsynchronous];
+            
+        });
+        
+    });
+}
+
+-(void) returnedResponse:(ASIHTTPRequest *)request
+{
+    NSString *responseString = [request responseString];
+    NSDictionary *values=(NSDictionary *) [responseString JSONValue];
+    NSString *successcode = [values objectForKey:@"success"];
+    if([successcode isEqualToString:@"1"])
+    {
+        NSDecimalNumber *seconds =[values objectForKey:@"msg"];
+        timerLabel = [[MZTimerLabel alloc] initWithLabel:self.countdownLabel andTimerType:MZTimerLabelTypeTimer];
+        [timerLabel setCountDownTime:[seconds intValue]];
+        [timerLabel start];
+    }
 }
 
 -(void)loadAllDataComponets

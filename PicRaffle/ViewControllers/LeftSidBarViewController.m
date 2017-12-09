@@ -23,6 +23,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLogoutNotification:) name:@"userinfochanged" object:nil];
+    
+    [self setProfilePhoto];
+   
+}
+
+- (void) setProfilePhoto{
     self.user_info = [[Global globalManager] getUserInfo];
     
     self.user_name_tv.text = [self.user_info objectForKey:@"name"];
@@ -37,21 +44,27 @@
             finalURL = [finalURL stringByAppendingString: @"no_image.png"];
         }
         else{
-           finalURL = [finalURL stringByAppendingString: [self.user_info objectForKey:@"account_image_name"]];
+            finalURL = [finalURL stringByAppendingString: [self.user_info objectForKey:@"account_image_name"]];
         }
-
+        
     }else{
-
-            finalURL = [finalURL stringByAppendingString: @"no_image.png"];
+        
+        finalURL = [finalURL stringByAppendingString: @"no_image.png"];
     }
     NSURL *url = [NSURL URLWithString:finalURL];
     
     NSData *image_data = [NSData dataWithContentsOfURL:url];
-//    self.iv_profile.image
-
+    //    self.iv_profile.image
+    
     self.iv_profile.image = [UIImage imageWithData:image_data];
-   
 }
+
+- (void) receiveLogoutNotification:(NSNotification *) notification
+{
+    if ([[notification name] isEqualToString:@"userinfochanged"])
+        [self setProfilePhoto];
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -62,7 +75,7 @@
     
 }
 - (void)viewDidAppear:(BOOL)animated{
-  self.iv_profile.layer.cornerRadius = self.iv_profile.layer.frame.size.height / 2 ;
+  self.iv_profile.layer.cornerRadius = self.iv_profile.layer.frame.size.width / 2;
 }
 
 /*

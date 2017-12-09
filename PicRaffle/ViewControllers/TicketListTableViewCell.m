@@ -62,7 +62,7 @@
 
 -(void)setValues: (NSInteger)price count:(NSInteger) count
 {
-    NSString *price_str = [NSString stringWithFormat:@"%ld$", (long)price];
+    NSString *price_str = [NSString stringWithFormat:@"$%ld", (long)price];
     NSString *count_str = [NSString stringWithFormat:@"%ld Ticket", (long)count];
     
     self.priceLabel.text = price_str;
@@ -74,8 +74,13 @@
 -(void) returnedTransactionResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
-//    NSMutableDictionary *values=(NSMutableDictionary *) [responseString JSONValue];
+    NSLog(@"%@", responseString);
+    NSDictionary *values=(NSDictionary *) [responseString JSONValue];
+    NSString *successcode = [values objectForKey:@"status"];
+    if([successcode isEqualToString:@"ok"])
+    {
+        [[Global globalManager]reloadAllData];
+    }
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
@@ -86,7 +91,6 @@
 -(void) failedTransactionResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
@@ -97,8 +101,6 @@
 
 - (void)postNonceToServer:(NSString *)paymentMethodNonce {
     // Update URL with your server
-    
-    
     NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
     finalURL = [finalURL stringByAppendingString: BRAINTREE_MAKE_TRANSACTION];
     
@@ -115,10 +117,6 @@
     NSMutableDictionary *_user_info = [[Global globalManager] getUserInfo];
     
     [request setPostValue:[_user_info objectForKey:@"userId"] forKey:@"user_id"];
-    
-    
-    
-    
     [MBProgressHUD showHUDAddedTo:self.superViewController.view animated:YES].labelText=@"Making transaction";
     
     [request setDidFinishSelector:@selector(returnedTransactionResponse:)];

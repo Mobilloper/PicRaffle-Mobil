@@ -51,7 +51,6 @@
     
     [Global.globalManager loadNotifications];
     
-    
     return YES;
 }
 
@@ -113,10 +112,9 @@
             // comment
             ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
             [request setPostValue:strToken forKey:@"dev_token"];
-            
             [request setDidFinishSelector:@selector(returnedResponse:)];
             [request setDidFailSelector:@selector(failedResponse:)];
-            //[request setDelegate:self];
+            [request setDelegate:self];
             [request startAsynchronous];
         });
         
@@ -146,6 +144,8 @@
     if(self.notificationView != nil)
     {
         [self.notificationView reloadTableView];
+        [self.navigationBar setNotificationNumber:[UIApplication sharedApplication].applicationIconBadgeNumber + 1];
+        [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
     }
     
     [[Global globalManager] reloadAllData];
@@ -153,8 +153,8 @@
     
 }
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
-    
     [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
+    
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"AddBadgeNotification"
                                                         object:self];
@@ -167,16 +167,6 @@
 }
 
 - (void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler {
-    NSLog(@"Userinfo %@", response.notification.request.content.userInfo);
-    NSDictionary *apsInfo = [response.notification.request.content.userInfo objectForKey:@"aps"];
-    NSLog(@"Notification = %@", apsInfo);
-    
-    Notification* noti = [[Notification alloc] init];
-    noti.notiID = @"1";
-    noti.notiContent = @"hello there";
-    noti.notiKind = @"start";
-    [Global.globalManager.notifications addObject:noti];
-    [Global.globalManager saveNotifications];
     completionHandler();
 }
 
@@ -191,9 +181,6 @@
 {
     NSString *responseString = [request responseString];
     NSLog(@"%@",responseString);
-    
-   
-    
 }
 
 

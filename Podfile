@@ -8,7 +8,10 @@ target 'PicRaffle' do
   # Pods for PicRaffle
 
 
+
+
 pod 'Braintree', '~> 3.9'
+pod 'MZTimerLabel'
 
   target 'PicRaffleTests' do
     inherit! :search_paths

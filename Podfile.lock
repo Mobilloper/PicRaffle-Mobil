@@ -29,13 +29,16 @@ PODS:
     - Braintree/API
   - Braintree/Venmo (3.9.9):
     - Braintree/API
+  - MZTimerLabel (0.5.4)
 
 DEPENDENCIES:
   - Braintree (~> 3.9)
+  - MZTimerLabel
 
 SPEC CHECKSUMS:
   Braintree: a9d35b7d5a8d76267adcb5795d32c20ca5f39a99
+  MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
 
-PODFILE CHECKSUM: 167dbc28e9ce6931333c5cebbecd62a2459880a2
+PODFILE CHECKSUM: 2096b4123f75bae5f0b57c473f920b1e5231d249
 
 COCOAPODS: 1.2.1

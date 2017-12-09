@@ -25,6 +25,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DashboardView">
             <connections>
                 <outlet property="carousel" destination="DRI-wO-K3s" id="apY-vQ-ngt"/>
+                <outlet property="location" destination="IOV-iN-s2y" id="L8A-DA-VBA"/>
                 <outlet property="ticket_user_tv" destination="LRv-ht-opZ" id="R8Q-Ni-EWx"/>
                 <outlet property="today_prize_tv" destination="Hek-UW-L0o" id="tNz-RB-O9T"/>
                 <outlet property="view" destination="iN0-l3-epB" id="AMu-Up-dXH"/>

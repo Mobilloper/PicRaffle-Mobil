@@ -27,7 +27,20 @@
     tickets = [tickets stringByAppendingString:@" Tickets"];
     self.ticket_count_tv.text = tickets;
     self.ticket_listview.viewController = self;
+    
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveNotification:) name:@"userinfochanged" object:nil];
 
+}
+
+- (void) receiveNotification:(NSNotification *) notification
+{
+    if ([[notification name] isEqualToString:@"userinfochanged"])
+    {
+        self.user_info = [[Global globalManager] getUserInfo];
+        NSString *tickets = [self.user_info objectForKey:@"tickets"];
+        tickets = [tickets stringByAppendingString:@" Tickets"];
+        self.ticket_count_tv.text = tickets;
+    }
 }
 
 - (void)didReceiveMemoryWarning {

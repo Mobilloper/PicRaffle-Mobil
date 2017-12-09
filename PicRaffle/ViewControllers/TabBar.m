@@ -83,8 +83,6 @@
             [self.superViewController showAddPhotoView];
         }
         else{
-            NSLog(@"uploading");
-            
             [self uploadImage];
         }
     }
@@ -154,9 +152,13 @@
     
     UIImage *img = self.addPhotoView.selectedImageview.image;
     NSData *imageData = UIImageJPEGRepresentation(img, 90);
-    //NSLog(@"imageData ==> %@", imageData);
+   
     [request setData:imageData withFileName:fileName andContentType:@"image/jpeg" forKey:@"image"];
     [request setPostValue:[_user_info objectForKey:@"userId"] forKey:@"user_id"];
+    
+    NSString *location = [NSString stringWithFormat:@"%@, %@", [Global globalManager].locationCity, [Global globalManager].locationCountry];
+    
+    [request setPostValue:location forKey:@"location"];
     NSMutableDictionary *temprow = [self.todaycontestinfo objectForKey:@"msg"];
     [request setPostValue:[temprow objectForKey:@"contest_id"] forKey:@"contest_id"];
     [request setDidFinishSelector:@selector(returnedResponse:)];
@@ -169,7 +171,6 @@
 -(void) returnedResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     NSMutableDictionary *values=(NSMutableDictionary *) [responseString JSONValue];
     
     NSString *successcode = [values objectForKey:@"success"];
@@ -223,8 +224,6 @@
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
     });

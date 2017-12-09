@@ -143,7 +143,24 @@ static Global *_globalManager;
             [request startAsynchronous];
             
         });
-        
+    });
+}
+
+-(void) loadBalance
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
+            finalURL = [finalURL stringByAppendingString: GETBALANCEURL];
+            NSURL *url = [NSURL URLWithString:finalURL];
+            ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+            [request setPostValue:[self.user_info objectForKey:@"userId"] forKey:@"user_id"];
+            [request setDidFinishSelector:@selector(returnedBalance:)];
+            [request setDidFailSelector:@selector(failedResponse:)];
+            [request setDelegate:self];
+            [request startAsynchronous];
+            
+        });
     });
 }
 
@@ -200,15 +217,16 @@ static Global *_globalManager;
 -(void) returnedUserInfo:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     NSDictionary *values=(NSDictionary *) [responseString JSONValue];
     [[Global globalManager] setUserInfo:[values objectForKey:@"msg"]];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"userphotoupload" object:self];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"changecountoftickets" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"userinfochanged" object:nil];
 }
 
 -(void) returnedTodayContest:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     self.todaytickets = (NSMutableDictionary *) [responseString JSONValue];
     AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     if (appdelegate.dashboardView != nil) {
@@ -219,15 +237,12 @@ static Global *_globalManager;
 -(void) returnedMyTickets:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     self.mytickets = (NSMutableDictionary *) [responseString JSONValue];
-    
 }
 
 -(void) returnedPastWinners:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     self.pastwinners = (NSMutableDictionary *) [responseString JSONValue];
     AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     if (appdelegate.activityView != nil) {
@@ -238,7 +253,6 @@ static Global *_globalManager;
 -(void) returnedTodayContestInfo:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
     self.todaycontestinfo = (NSMutableDictionary *) [responseString JSONValue];
     AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     if (appdelegate.dashboardView != nil) {
@@ -250,22 +264,26 @@ static Global *_globalManager;
     }
 }
 
--(void) failedResponse:(ASIHTTPRequest *)request
+-(void)returnedBalance:(ASIHTTPRequest *)request
 {
     NSString *responseString = [request responseString];
-    NSLog(@"%@",responseString);
+    NSDictionary *values=(NSDictionary *) [responseString JSONValue];
+    NSString *balance = [values objectForKey:@"balance"];
+    [Global globalManager].balance = [balance intValue];
 }
 
+-(void) failedResponse:(ASIHTTPRequest *)request
+{
+    //NSString *responseString = [request responseString];
+}
 
 - (void)saveNotifications{
-
     // Set archive nsdata
     NSMutableArray* arr = [NSMutableArray arrayWithCapacity:self.notifications.count];
     for( Notification* notificationObj in self.notifications) {
         NSData * encodedObj = [NSKeyedArchiver archivedDataWithRootObject:notificationObj];
         [arr addObject:encodedObj];
     }
-    
     NSUserDefaults *defaultUser = [NSUserDefaults standardUserDefaults];
     [defaultUser setObject:arr forKey:@"notis"];
 }
@@ -279,10 +297,27 @@ static Global *_globalManager;
         Notification *tempNoti = [NSKeyedUnarchiver unarchiveObjectWithData:tempdata];
         [self.notifications addObject:tempNoti];
     }
-    
 }
 
 -(NSMutableArray*)getNotis{
     return  self.notifications;
+}
+
+- (void)loadUserLoginInfo
+{
+    NSData *username = [[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSData *userpassword = [[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+    self.userName = [NSKeyedUnarchiver unarchiveObjectWithData:username];
+    self.userPassword = [NSKeyedUnarchiver unarchiveObjectWithData:userpassword];
+}
+
+- (void)saveUserLoginInfo
+{
+    NSData *userName = [NSKeyedArchiver archivedDataWithRootObject:self.userName];
+    NSData *password = [NSKeyedArchiver archivedDataWithRootObject:self.userPassword];
+    NSUserDefaults * defaultUser = [NSUserDefaults standardUserDefaults];
+    [defaultUser setObject:userName forKey:@"username"];
+    [defaultUser setObject:password forKey:@"password"];
+    
 }
 @end

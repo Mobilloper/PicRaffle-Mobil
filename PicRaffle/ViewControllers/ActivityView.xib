@@ -23,6 +23,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ActivityView">
             <connections>
+                <outlet property="countdownLabel" destination="vUg-eU-tOJ" id="udB-8U-3lH"/>
                 <outlet property="galleryCollectionView" destination="T7a-H3-SqG" id="FiJ-Ju-PPb"/>
                 <outlet property="today_prize" destination="vjs-DP-xHT" id="oab-M0-WIH"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1KQ-dn-PUb"/>
@@ -85,8 +86,8 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3:00:15" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUg-eU-tOJ">
-                    <rect key="frame" x="252.5" y="90" width="83.5" height="29.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vUg-eU-tOJ">
+                    <rect key="frame" x="238.5" y="90" width="97.5" height="29.5"/>
                     <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="25"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>

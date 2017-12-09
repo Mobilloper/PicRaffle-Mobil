@@ -11,6 +11,14 @@
 #import "ViewPhotoViewController.h"
 #import "Global.h"
 #import "UIImageView+WebCache.h"
+#import "TOCropViewController.h"
+#import "ASIFormDataRequest.h"
+#import "JSON.h"
+
+
+@interface ProfileView()<TOCropViewControllerDelegate ,UIActionSheetDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@end
 
 @implementation ProfileView
 
@@ -51,9 +59,8 @@
     
     
     self.user_info = [[Global globalManager] getUserInfo];
-    
     self.user_name_tv.text = [self.user_info objectForKey:@"name"];
-    
+    self.location.text = [NSString stringWithFormat:@"%@, %@",[Global globalManager].locationCity, [Global globalManager].locationCountry];
     NSString *finalURL = [NSString stringWithFormat:ACCOUNT_IMAGE_FOLDER];
     
     if([self.user_info objectForKey:@"account_image_name"])
@@ -148,13 +155,121 @@
 
     [self.superViewController presentViewController:vpVC animated:YES completion:nil];
 }
+- (IBAction)actionImageClick:(id)sender {
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Select Picture" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action)
+                                   {
+                                       
+                                   }];
+    [alertController addAction:cancelAction];
+    UIAlertAction *libraryAction = [UIAlertAction actionWithTitle:@"Choose from library" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                                    {
+                                        UIImagePickerController *picker;
+                                        picker  = [[UIImagePickerController alloc]init];
+                                        picker.delegate = self;
+                                        picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+                                        [self.superViewController presentViewController:picker animated:YES completion:nil];
+                                    }];
+    [alertController addAction:libraryAction];
+    
+    
+    UIAlertAction *takePhotoAction = [UIAlertAction actionWithTitle:@"Take from Camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action)
+                                      {
+                                          UIImagePickerController *picker;
+                                          picker  = [[UIImagePickerController alloc]init];
+                                          picker.delegate = self;
+                                          picker.sourceType = UIImagePickerControllerSourceTypeCamera;
+                                          [self.superViewController presentViewController:picker animated:YES completion:nil];
+                                          
+                                      }];
+    [alertController addAction:takePhotoAction];
+    [alertController setModalPresentationStyle:UIModalPresentationPopover];
+    UIPopoverPresentationController *popPresenter = [alertController popoverPresentationController];
+    popPresenter.sourceView = self.profileImage;
+    popPresenter.sourceRect = self.profileImage.bounds;
+    
+    [self.superViewController presentViewController:alertController animated:YES completion:nil];
+}
+
+#pragma imagePickerController Delegate
+
+-(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    UIImage *image =info[UIImagePickerControllerOriginalImage];
+    
+    TOCropViewController *cropViewController = [[TOCropViewController alloc]initWithImage:image];
+    cropViewController.delegate = self;
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    [self.superViewController presentViewController:cropViewController animated:YES completion:nil];
+}
+
+#pragma tocropviewcontroller delegate
+
+//- (void)cropViewController:(nonnull TOCropViewController *)cropViewController didCropImageToRect:(CGRect)cropRect angle:(NSInteger)angle NS_SWIFT_NAME(cropViewController(_:didCropToRect:angle:))
+//{
+//    [cropViewController dismissViewControllerAnimated:YES completion:nil];
+//}
+
+- (void)cropViewController:(TOCropViewController *)cropViewController didCropToImage:(UIImage *)image withRect:(CGRect)cropRect angle:(NSInteger)angle
+{
+    // 'image' is the newly cropped version of the original image
+ 
+    self.profileImage.image =image;// (UIImage*) [UIImage imageNamed:@"add photo image"];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
+            finalURL = [finalURL stringByAppendingString: CHANGEUSERPHOTOURL];
+            NSURL *url = [NSURL URLWithString:finalURL];
+            
+            ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+            request.requestMethod = @"POST";
+            NSString *fileName = @"iphone.jpg";
+            [request addPostValue:fileName forKey:@"name"];
+            UIImage *img = self.profileImage.image;
+            NSData *imageData = UIImageJPEGRepresentation(img, 90);
+            
+            [request setData:imageData withFileName:fileName andContentType:@"image/jpeg" forKey:@"image"];
+            [request setPostValue:[_user_info objectForKey:@"userId"] forKey:@"user_id"];
+            [request setDidFinishSelector:@selector(returnedResponse:)];
+            [request setDidFailSelector:@selector(failedResponse:)];
+            [request setDelegate:self];
+            [request startAsynchronous];
+        });
+        
+    });
+    
+    [cropViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) returnedResponse:(ASIHTTPRequest *)request
+{
+    NSString *responseString = [request responseString];
+    NSMutableDictionary *values=(NSMutableDictionary *) [responseString JSONValue];
+    NSString *successcode = [values objectForKey:@"success"];
+    if([successcode isEqualToString:@"0"])
+    {
+       
+    }
+    else if([successcode isEqualToString:@"1"]){
+        
+    }
+    [[Global globalManager] reloadAllData];
+    
+    
+}
+
+-(void) failedResponse:(ASIHTTPRequest *)request
+{
+    NSString *responseString = [request responseString];
+}
+
 
 -(void)reloadView
 {
     self.user_info = [[Global globalManager] getUserInfo];
-    
     self.user_name_tv.text = [self.user_info objectForKey:@"name"];
-    
+    self.location.text = [NSString stringWithFormat:@"%@, %@",[Global globalManager].locationCity, [Global globalManager].locationCountry];
     NSString *finalURL = [NSString stringWithFormat:ACCOUNT_IMAGE_FOLDER];
     
     if([self.user_info objectForKey:@"account_image_name"])
