@@ -26,6 +26,7 @@
 -(void)showDashboardView;
 -(void)removeAllViews;
 -(void)showProfileView;
+-(void)showOthersProfileView:(NSString *)userId;
 -(void)showAddPhotoView;
 -(void)showActivityView;
 -(void)showBuyTicketListView;

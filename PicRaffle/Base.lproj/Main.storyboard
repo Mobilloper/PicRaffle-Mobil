@@ -948,11 +948,11 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                         <rect key="frame" x="0.0" y="28" width="375" height="48"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="59r-9C-5qD" id="5gb-9q-0rA">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="47.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="48"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CFb-dT-Ngw">
-                                                    <rect key="frame" x="15" y="0.0" width="345" height="47.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="345" height="47"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1051,6 +1051,9 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                         <integer key="value" value="32"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="actionWithdraw:" destination="kjc-Mu-8n8" eventType="touchUpInside" id="9vY-xy-Ra0"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TBV-FT-YFq">
                                 <rect key="frame" x="115.5" y="251" width="143" height="30"/>
@@ -1604,7 +1607,7 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VQv-aQ-VJH">
-                                                        <rect key="frame" x="37" y="229" width="300" height="45.5"/>
+                                                        <rect key="frame" x="37" y="229" width="300" height="46"/>
                                                         <color key="backgroundColor" red="0.3455942273" green="0.52979224920000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Change">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1779,7 +1782,7 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uym-0l-lo2">
-                                                        <rect key="frame" x="37.5" y="237" width="300" height="46"/>
+                                                        <rect key="frame" x="37.5" y="237" width="300" height="45.5"/>
                                                         <color key="backgroundColor" red="0.3455942273" green="0.52979224920000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Change">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

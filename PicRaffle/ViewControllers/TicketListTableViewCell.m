@@ -11,6 +11,8 @@
 #import "JSON.h"
 #import "MBProgressHUD.h"
 #import <Braintree/Braintree.h>
+#import <Braintree-API.h>
+#import <Braintree/Braintree-API.h>
 
 #include "Global.h"
 
@@ -18,7 +20,6 @@
 
 @property (nonatomic, strong) Braintree *braintree;
 @property (weak, nonatomic) IBOutlet UIView *vCell;
-
 
 @end
 

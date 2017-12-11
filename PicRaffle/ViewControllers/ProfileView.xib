@@ -50,26 +50,26 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farhan Fauzan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUI-ur-6ii" userLabel="profile name label">
-                            <rect key="frame" x="148" y="0.0" width="132.5" height="23.5"/>
+                            <rect key="frame" x="148" y="0.0" width="132.5" height="24.5"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard location icon" translatesAutoresizingMaskIntoConstraints="NO" id="INo-XF-KVe" userLabel="location icon">
-                            <rect key="frame" x="148" y="28.5" width="19" height="24"/>
+                            <rect key="frame" x="148" y="29.5" width="19" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="INo-XF-KVe" secondAttribute="height" multiplier="19:24" id="OwN-VS-CQX"/>
                                 <constraint firstAttribute="width" constant="19" id="vt0-9v-KXa"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="California" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-n7-dqC">
-                            <rect key="frame" x="187" y="28.5" width="72.5" height="24"/>
-                            <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CaliforniahjgjhgjhgjhgCaliforniahjgjhgjhgjhgCaliforniahjgjhgjhgjhgCaliforniahjgjhgjhgjhgCaliforniahjgjhgjhgjhg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-n7-dqC">
+                            <rect key="frame" x="175" y="29.5" width="144" height="32"/>
+                            <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="13"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit asd kefe site" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh6-Cc-1cr" userLabel="description">
-                            <rect key="frame" x="148" y="72.5" width="171" height="40"/>
+                            <rect key="frame" x="148" y="69.5" width="171" height="41.5"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="17"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -77,7 +77,7 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="dh6-Cc-1cr" firstAttribute="top" secondItem="INo-XF-KVe" secondAttribute="bottom" constant="20" id="895-Mf-mp1"/>
+                        <constraint firstItem="dh6-Cc-1cr" firstAttribute="top" secondItem="INo-XF-KVe" secondAttribute="bottom" constant="16" id="895-Mf-mp1"/>
                         <constraint firstItem="INo-XF-KVe" firstAttribute="top" secondItem="EUI-ur-6ii" secondAttribute="bottom" constant="5" id="BkN-JM-GPS"/>
                         <constraint firstItem="7wT-zW-34Y" firstAttribute="centerY" secondItem="jL1-dJ-iU1" secondAttribute="centerY" id="By3-nT-zpC"/>
                         <constraint firstItem="EUI-ur-6ii" firstAttribute="top" secondItem="7wT-zW-34Y" secondAttribute="top" id="Ckc-uE-z8E"/>
@@ -85,13 +85,14 @@
                         <constraint firstItem="7wT-zW-34Y" firstAttribute="height" secondItem="jL1-dJ-iU1" secondAttribute="height" id="Hrg-d3-r4U"/>
                         <constraint firstItem="oIY-fD-IKZ" firstAttribute="centerY" secondItem="7wT-zW-34Y" secondAttribute="centerY" id="L3B-Ha-KWI"/>
                         <constraint firstItem="oIY-fD-IKZ" firstAttribute="width" secondItem="7wT-zW-34Y" secondAttribute="width" id="OOl-19-FaE"/>
-                        <constraint firstItem="dJa-n7-dqC" firstAttribute="bottom" secondItem="INo-XF-KVe" secondAttribute="bottom" id="ObF-LC-O9N"/>
+                        <constraint firstItem="dJa-n7-dqC" firstAttribute="bottom" secondItem="INo-XF-KVe" secondAttribute="bottom" constant="8" id="ObF-LC-O9N"/>
                         <constraint firstItem="7wT-zW-34Y" firstAttribute="leading" secondItem="jL1-dJ-iU1" secondAttribute="leading" constant="8" id="VWB-Lr-akL"/>
                         <constraint firstItem="dJa-n7-dqC" firstAttribute="top" secondItem="INo-XF-KVe" secondAttribute="top" id="Wi1-RE-Q1O"/>
                         <constraint firstAttribute="trailing" secondItem="dh6-Cc-1cr" secondAttribute="trailing" constant="16" id="XtJ-E0-hho"/>
-                        <constraint firstItem="dJa-n7-dqC" firstAttribute="leading" secondItem="INo-XF-KVe" secondAttribute="trailing" constant="20" id="aOb-9b-Myq"/>
+                        <constraint firstItem="dJa-n7-dqC" firstAttribute="leading" secondItem="INo-XF-KVe" secondAttribute="trailing" constant="8" id="aOb-9b-Myq"/>
                         <constraint firstItem="dh6-Cc-1cr" firstAttribute="leading" secondItem="7wT-zW-34Y" secondAttribute="trailing" constant="20" id="kU2-3f-Z6w"/>
                         <constraint firstItem="EUI-ur-6ii" firstAttribute="leading" secondItem="7wT-zW-34Y" secondAttribute="trailing" constant="20" id="ny7-cX-y8r"/>
+                        <constraint firstAttribute="trailing" secondItem="dJa-n7-dqC" secondAttribute="trailing" constant="16" id="rYg-5a-Khy"/>
                         <constraint firstItem="7wT-zW-34Y" firstAttribute="width" secondItem="jL1-dJ-iU1" secondAttribute="height" multiplier="1:1" id="t2j-GD-xpT"/>
                         <constraint firstItem="oIY-fD-IKZ" firstAttribute="centerX" secondItem="7wT-zW-34Y" secondAttribute="centerX" id="uSZ-b8-S1V"/>
                         <constraint firstAttribute="height" constant="120" id="xWA-po-lnx"/>

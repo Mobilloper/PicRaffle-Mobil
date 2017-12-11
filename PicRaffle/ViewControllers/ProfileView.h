@@ -24,6 +24,9 @@
 @property NSMutableArray *mytickets;
 @property NSMutableDictionary *today_contest;
 
+@property Boolean isMe;
+
 
 -(void)reloadView;
+-(void)reloadViewWithOhterProfile:(NSString *)userId;
 @end

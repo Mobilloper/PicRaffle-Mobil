@@ -24,6 +24,7 @@
     self.balanceLabel.text = [NSString stringWithFormat:@"$%ld",(long)[Global globalManager].balance ];
     self.cur_email = [[Global globalManager].user_info objectForKey:@"paypal_email"];
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userinfochanged:) name:@"userinfochanged" object:nil];
+     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userinfochanged:) name:@"balancechanged" object:nil];
 }
 
 - (void) userinfochanged:(NSNotification *) notification
@@ -31,6 +32,10 @@
     if ([[notification name] isEqualToString:@"userinfochanged"])
     {
         self.cur_email = [[Global globalManager].user_info objectForKey:@"paypal_email"];
+    }
+    if ([[notification name] isEqualToString:@"balancechanged"])
+    {
+        self.balanceLabel.text = [NSString stringWithFormat:@"$%ld",(long)[Global globalManager].balance ];
     }
 }
 
@@ -177,4 +182,55 @@
     }
 }
 
+- (IBAction)actionWithdraw:(id)sender {
+   if([Global globalManager].balance == 0)
+   {
+       return;
+   }
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
+            finalURL = [finalURL stringByAppendingString: WITHDRAWURL];
+            NSURL *url = [NSURL URLWithString:finalURL];
+            
+            // comment
+            ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+            
+            [request setPostValue:[[Global globalManager].user_info objectForKey:@"userId"] forKey:@"user_id"];
+            [request setDidFinishSelector:@selector(returnedWithdrawResponse:)];
+            [request setDidFailSelector:@selector(failedWithdrawResponse:)];
+            [request setDelegate:self];
+            [request startAsynchronous];
+            [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        });
+        
+    });
+}
+
+-(void)returnedWithdrawResponse:(ASIHTTPRequest *)request
+{
+    NSString *responseString = [request responseString];
+    NSDictionary *values=(NSDictionary *) [responseString JSONValue];
+    NSString *successcode = [values objectForKey:@"success"];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if([successcode isEqualToString:@"1"])
+    {
+        [[Global globalManager]loadBalance];
+    }
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Info" message:[values objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        
+    }]];
+    [self presentViewController:alertController animated:YES completion:nil];
+}
+
+-(void) failedWithdrawResponse:(ASIHTTPRequest *)request
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+-(void) failedResponse:(ASIHTTPRequest *)request
+{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
 @end

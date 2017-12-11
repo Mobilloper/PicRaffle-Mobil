@@ -20,6 +20,7 @@
 #import "MyAccountViewController.h"
 #import "MyTicketsViewController.h"
 #import "AppDelegate.h"
+#import "ASIFormDataRequest.h"
 
 @interface BasicWithSideBarViewController ()
 @property (weak, nonatomic) IBOutlet NavigationBar *navigationbar;
@@ -63,6 +64,7 @@
     appdelegate.ticketListView = self.buyTicketListView;
     appdelegate.navigationBar = self.navigationbar;
     
+    [self saveUserLocation];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,6 +112,13 @@
 {
     [self hideAllViews];
     [self.profileView reloadView];
+    [self.profileView setHidden:NO];
+}
+
+-(void)showOthersProfileView:(NSString* )userId
+{
+    [self hideAllViews];
+    [self.profileView reloadViewWithOhterProfile:userId];
     [self.profileView setHidden:NO];
 }
 
@@ -191,6 +200,30 @@
     NSMutableDictionary *temp =[NSMutableDictionary dictionary];
     [temp setObject:self.tabBar forKey:@"tabbar"];
     return temp;
+}
+
+-(void)saveUserLocation
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
+            finalURL = [finalURL stringByAppendingString: CHANGELOACTIONURL];
+            NSURL *url = [NSURL URLWithString:finalURL];
+            
+            ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+            [request setPostValue:[[Global globalManager].user_info objectForKey:@"userId"] forKey:@"user_id"];
+            
+            NSString *location = [NSString stringWithFormat:@"%@, %@",[Global globalManager].locationCity, [Global globalManager].locationCountry];
+            [request setPostValue:location forKey:@"location"];
+            
+            //[request setDidFinishSelector:@selector(returnedUserInfoResponse:)];
+            //[request setDidFailSelector:@selector(failedResponse:)];
+            [request setDelegate:self];
+            [request startAsynchronous];
+        });
+        
+    });
+ 
 }
 
 @end

@@ -61,6 +61,7 @@
 }
 
 - (IBAction)actionCameraButton:(id)sender {
+    self.todaycontestinfo = [Global globalManager].todaycontestinfo;
     self.addPhotoView = [self.superViewController.superViews objectForKey:@"addphotoview"];
     self.user_info = [[Global globalManager] getUserInfo];
     NSString *count_tickets = [_user_info objectForKey:@"tickets"];
@@ -138,6 +139,14 @@
 -(void)uploadImage
 {
     self.todaycontestinfo = [[Global globalManager] getTodayContestInfo];
+    NSString *successcode = [self.todaycontestinfo objectForKey:@"success"];
+    if([successcode isEqualToString:@"0"])
+    {
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Today Contest is not created, Please Uplaod after today contest would be created!" preferredStyle:UIAlertControllerStyleAlert];
+        [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+        [self.superViewController presentViewController:alertController animated:YES completion:nil];
+        return;
+    }
     NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
     finalURL = [finalURL stringByAppendingString: CONTESTUPLOAD_URL];
     NSURL *url = [NSURL URLWithString:finalURL];

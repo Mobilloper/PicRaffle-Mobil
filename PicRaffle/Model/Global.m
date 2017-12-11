@@ -219,8 +219,6 @@ static Global *_globalManager;
     NSString *responseString = [request responseString];
     NSDictionary *values=(NSDictionary *) [responseString JSONValue];
     [[Global globalManager] setUserInfo:[values objectForKey:@"msg"]];
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"userphotoupload" object:self];
-    //[[NSNotificationCenter defaultCenter] postNotificationName:@"changecountoftickets" object:nil];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"userinfochanged" object:nil];
 }
 
@@ -270,6 +268,7 @@ static Global *_globalManager;
     NSDictionary *values=(NSDictionary *) [responseString JSONValue];
     NSString *balance = [values objectForKey:@"balance"];
     [Global globalManager].balance = [balance intValue];
+     [[NSNotificationCenter defaultCenter] postNotificationName:@"balancechanged" object:nil];
 }
 
 -(void) failedResponse:(ASIHTTPRequest *)request

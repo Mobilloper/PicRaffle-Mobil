@@ -249,6 +249,7 @@
     NSDictionary *temp = [self.items objectAtIndex:self.carousel.currentItemIndex];
     self.ticket_user_tv.text = [temp objectForKey:@"name"];
     self.location.text = [temp objectForKey:@"location"];
+    self.currentSelectedUserId = [temp objectForKey:@"userId"];
 }
 
 - (IBAction)actionJoinBTN:(id)sender {
@@ -280,5 +281,14 @@
     }
     [self.carousel reloadData];
     [self loadAllDataComponets];
+}
+- (IBAction)actionViewOthersProfile:(id)sender {
+    if([self.currentSelectedUserId isEqualToString: [[Global globalManager].user_info objectForKey:@"userId"]])
+    {
+        [self.superViewController showProfileView];
+    }
+    else{
+        [self.superViewController showOthersProfileView:self.currentSelectedUserId];
+    }
 }
 @end

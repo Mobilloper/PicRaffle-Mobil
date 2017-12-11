@@ -99,6 +99,8 @@
     self.today_contest = [[Global globalManager]getTodayContestInfo];
     
     
+    self.isMe = true;
+    
     [self addSubview: self.view];
 }
 
@@ -156,6 +158,7 @@
     [self.superViewController presentViewController:vpVC animated:YES completion:nil];
 }
 - (IBAction)actionImageClick:(id)sender {
+    if(!self.isMe)return;
     UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Select Picture" message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction *action)
                                    {
@@ -261,12 +264,13 @@
 
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
-    NSString *responseString = [request responseString];
+   // NSString *responseString = [request responseString];
 }
 
 
 -(void)reloadView
 {
+    self.isMe = true;
     self.user_info = [[Global globalManager] getUserInfo];
     self.user_name_tv.text = [self.user_info objectForKey:@"name"];
     self.location.text = [NSString stringWithFormat:@"%@, %@",[Global globalManager].locationCity, [Global globalManager].locationCountry];
@@ -306,5 +310,102 @@
     }
     
     [self.galleryCollectionView reloadData];
+}
+
+-(void)reloadViewWithOhterProfile:(NSString*)userId
+{
+    self.isMe = false;
+    [self getUserInfo:userId];
+    [self getTickets:userId];
+}
+
+-(void) getUserInfo:(NSString*)userId
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
+            finalURL = [finalURL stringByAppendingString: GETUSERINFO_URL];
+            NSURL *url = [NSURL URLWithString:finalURL];
+            
+            ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+            [request setPostValue:userId forKey:@"user_id"];
+            [request setDidFinishSelector:@selector(returnedUserInfoResponse:)];
+            [request setDidFailSelector:@selector(failedResponse:)];
+            [request setDelegate:self];
+            [request startAsynchronous];
+        });
+        
+    });
+}
+
+-(void)returnedUserInfoResponse:(ASIHTTPRequest *)request
+{
+    NSString *responseString = [request responseString];
+    NSMutableDictionary *values=(NSMutableDictionary *) [responseString JSONValue];
+    NSString *successcode = [values objectForKey:@"success"];
+    if([successcode isEqualToString:@"1"])
+    {
+        NSMutableDictionary *otherUserInfo = [values objectForKey:@"msg"];
+        self.user_name_tv.text = [otherUserInfo objectForKey:@"name"];
+        //self.location.text = [otherUserInfo objectForKey:@""];
+        NSString *finalURL = [NSString stringWithFormat:ACCOUNT_IMAGE_FOLDER];
+        if([otherUserInfo objectForKey:@"account_image_name"])
+        {
+            NSString *temp =[otherUserInfo objectForKey:@"account_image_name"];
+            if(temp == (NSString*)[NSNull null])
+            {
+                finalURL = [finalURL stringByAppendingString: @"no_image.png"];
+            }
+            else{
+                finalURL = [finalURL stringByAppendingString: [otherUserInfo objectForKey:@"account_image_name"]];
+            }
+            
+        }else{
+            
+            finalURL = [finalURL stringByAppendingString: @"no_image.png"];
+        }
+        NSURL *url = [NSURL URLWithString:finalURL];
+        NSData *image_data = [NSData dataWithContentsOfURL:url];
+        self.profileImage.image = [UIImage imageWithData:image_data];
+        
+        self.location.text = [otherUserInfo objectForKey:@"location"];
+        
+    }
+    
+}
+
+-(void)getTickets:(NSString *) userId
+{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
+            finalURL = [finalURL stringByAppendingString: GETTICKETSBYUSERID_URL];
+            finalURL = [finalURL stringByAppendingString: userId];
+            NSURL *url = [NSURL URLWithString:finalURL];
+            
+            // comment
+            ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+            
+            [request setDidFinishSelector:@selector(returnedUserTickets:)];
+            [request setDidFailSelector:@selector(failedResponse:)];
+            [request setDelegate:self];
+            [request startAsynchronous];
+            
+        });
+        
+    });
+}
+
+-(void) returnedUserTickets:(ASIHTTPRequest* )request
+{
+    NSString *responseString = [request responseString];
+    NSMutableDictionary *values=(NSMutableDictionary *) [responseString JSONValue];
+    NSString *successcode = [values objectForKey:@"success"];
+    if([successcode isEqualToString:@"1"])
+    {
+       self.mytickets = [values objectForKey:@"msg"];
+       [self.galleryCollectionView reloadData];
+    }
+    
 }
 @end

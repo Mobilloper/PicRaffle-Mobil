@@ -41,6 +41,8 @@
 #define GETLEFTSECONDSURL           @"getleftsecondstodaycontest"
 #define GETBALANCEURL               @"getbalance"
 #define CHANGEPAYPALEMAIL           @"changepaypalemail"
+#define WITHDRAWURL                 @"withdraw"
+#define CHANGELOACTIONURL           @"changeuserlocation"
 
 #endif /* Global_h */
 

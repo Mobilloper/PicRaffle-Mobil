@@ -63,13 +63,21 @@
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MY2-R5-Y3F">
+                            <rect key="frame" x="40" y="0.0" width="132.5" height="42"/>
+                            <connections>
+                                <action selector="actionViewOthersProfile:" destination="-1" eventType="touchUpInside" id="9hM-Rh-Ghp"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="LRv-ht-opZ" firstAttribute="centerY" secondItem="eyP-dy-5nh" secondAttribute="centerY" multiplier="0.6" id="0Ao-0F-YhT"/>
+                        <constraint firstItem="MY2-R5-Y3F" firstAttribute="width" secondItem="LRv-ht-opZ" secondAttribute="width" id="0aH-rf-tDK"/>
                         <constraint firstItem="Bgx-yg-oR8" firstAttribute="bottom" secondItem="LRv-ht-opZ" secondAttribute="bottom" id="2pK-k3-1oO"/>
                         <constraint firstItem="LRv-ht-opZ" firstAttribute="height" secondItem="eyP-dy-5nh" secondAttribute="height" multiplier="0.6" id="5mP-9S-c7b"/>
                         <constraint firstItem="LRv-ht-opZ" firstAttribute="leading" secondItem="eyP-dy-5nh" secondAttribute="leading" constant="40" id="JyW-oy-Y2I"/>
+                        <constraint firstItem="MY2-R5-Y3F" firstAttribute="centerY" secondItem="LRv-ht-opZ" secondAttribute="centerY" id="OB2-1w-mJz"/>
                         <constraint firstItem="Bgx-yg-oR8" firstAttribute="top" secondItem="LRv-ht-opZ" secondAttribute="top" id="Qo1-25-HQv"/>
                         <constraint firstItem="PHb-tf-9TS" firstAttribute="centerY" secondItem="eyP-dy-5nh" secondAttribute="centerY" multiplier="1.6" id="RNe-hO-Gni"/>
                         <constraint firstAttribute="height" constant="70" id="aEg-uL-Wjc"/>
@@ -78,6 +86,8 @@
                         <constraint firstItem="IOV-iN-s2y" firstAttribute="top" secondItem="PHb-tf-9TS" secondAttribute="top" id="jcV-Un-IMh"/>
                         <constraint firstItem="IOV-iN-s2y" firstAttribute="bottom" secondItem="PHb-tf-9TS" secondAttribute="bottom" id="mbH-zw-qC8"/>
                         <constraint firstItem="IOV-iN-s2y" firstAttribute="leading" secondItem="PHb-tf-9TS" secondAttribute="leading" constant="30" id="mla-fv-TA3"/>
+                        <constraint firstItem="MY2-R5-Y3F" firstAttribute="centerX" secondItem="LRv-ht-opZ" secondAttribute="centerX" id="o7t-qb-bnx"/>
+                        <constraint firstItem="MY2-R5-Y3F" firstAttribute="height" secondItem="LRv-ht-opZ" secondAttribute="height" id="oeO-lQ-HX4"/>
                         <constraint firstItem="PHb-tf-9TS" firstAttribute="height" secondItem="eyP-dy-5nh" secondAttribute="height" multiplier="0.3" id="tmt-De-1Py"/>
                     </constraints>
                 </view>
