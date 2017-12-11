@@ -10,9 +10,9 @@
 #define Global_h
 
 
-#define SITE_DOMAIN  @"http://192.168.1.61/backend/"
+//#define SITE_DOMAIN  @"http://192.168.1.61/backend/"
 //#define SITE_DOMAIN                 @"http://admin.picraffleadmin.com/backend/"
-
+#define SITE_DOMAIN  @"http://45.32.84.9/backend/"
 
 
 #define BRAINTREE_CLIENT_TOKEN      @"getbraintreetoken"
@@ -20,8 +20,13 @@
 
 //#define ACCOUNT_IMAGE_FOLDER        @"http://admin.picraffleadmin.com/assets/account_image/"
 //#define TICKET_IMAGE_FOLDER         @"http://admin.picraffleadmin.com/assets/uploads/"
-#define ACCOUNT_IMAGE_FOLDER        @"http://192.168.1.61/assets/account_image/"
-#define TICKET_IMAGE_FOLDER         @"http://192.168.1.61/assets/uploads/"
+
+//#define ACCOUNT_IMAGE_FOLDER        @"http://192.168.1.61/assets/account_image/"
+//#define TICKET_IMAGE_FOLDER         @"http://192.168.1.61/assets/uploads/"
+
+#define ACCOUNT_IMAGE_FOLDER        @"http://45.32.84.9/assets/account_image/"
+#define TICKET_IMAGE_FOLDER         @"http://45.32.84.9/assets/uploads/"
+
 
 #define LOGIN_URL                   @"login"
 #define SIGNUP_URL                  @"signup"

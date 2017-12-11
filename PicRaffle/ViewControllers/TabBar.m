@@ -109,11 +109,11 @@
 
 
 - (IBAction)actionHomeBTN:(id)sender {
-    [[Global globalManager]reloadAllData];
+    //[[Global globalManager]reloadAllData];
     [self setHomeActive];
 }
 - (IBAction)actionCupBTN:(id)sender {
-  [[Global globalManager]reloadAllData];
+  //[[Global globalManager]reloadAllData];
   [self setCupActive];
 }
 
@@ -160,11 +160,15 @@
     [MBProgressHUD showHUDAddedTo:self.superViewController.view animated:YES].labelText=@"uploading";
     
     UIImage *img = self.addPhotoView.selectedImageview.image;
-    NSData *imageData = UIImageJPEGRepresentation(img, 90);
+    NSData *imageData = UIImageJPEGRepresentation(img, 180);
+//    NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(img)];
+//    NSString *imgStr = [imageData base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
    
     [request setData:imageData withFileName:fileName andContentType:@"image/jpeg" forKey:@"image"];
-    [request setPostValue:[_user_info objectForKey:@"userId"] forKey:@"user_id"];
+//    [request setPostValue:imgStr forKey:@"image"];
     
+    [request setPostValue:[_user_info objectForKey:@"userId"] forKey:@"user_id"];
+    [request setTimeOutSeconds:45];
     NSString *location = [NSString stringWithFormat:@"%@, %@", [Global globalManager].locationCity, [Global globalManager].locationCountry];
     
     [request setPostValue:location forKey:@"location"];

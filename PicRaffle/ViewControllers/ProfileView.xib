@@ -50,26 +50,26 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farhan Fauzan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUI-ur-6ii" userLabel="profile name label">
-                            <rect key="frame" x="148" y="0.0" width="132.5" height="24.5"/>
+                            <rect key="frame" x="148" y="0.0" width="132.5" height="23.5"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="20"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dashboard location icon" translatesAutoresizingMaskIntoConstraints="NO" id="INo-XF-KVe" userLabel="location icon">
-                            <rect key="frame" x="148" y="29.5" width="19" height="24"/>
+                            <rect key="frame" x="148" y="28.5" width="19" height="24"/>
                             <constraints>
                                 <constraint firstAttribute="width" secondItem="INo-XF-KVe" secondAttribute="height" multiplier="19:24" id="OwN-VS-CQX"/>
                                 <constraint firstAttribute="width" constant="19" id="vt0-9v-KXa"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CaliforniahjgjhgjhgjhgCaliforniahjgjhgjhgjhgCaliforniahjgjhgjhgjhgCaliforniahjgjhgjhgjhgCaliforniahjgjhgjhgjhg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJa-n7-dqC">
-                            <rect key="frame" x="175" y="29.5" width="144" height="32"/>
+                            <rect key="frame" x="175" y="28.5" width="144" height="32"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="13"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit asd kefe site" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dh6-Cc-1cr" userLabel="description">
-                            <rect key="frame" x="148" y="69.5" width="171" height="41.5"/>
+                            <rect key="frame" x="148" y="68.5" width="171" height="40"/>
                             <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="17"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
