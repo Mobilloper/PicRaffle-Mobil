@@ -120,7 +120,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Po-SE-2d2">
-                                                <rect key="frame" x="246" y="580" width="66" height="36"/>
+                                                <rect key="frame" x="238.5" y="580.5" width="65" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="36" id="PMg-Xw-aE0"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="65" id="ZY3-nx-qfg"/>
@@ -132,7 +132,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have an account ?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xc-wI-jaO">
-                                                <rect key="frame" x="40" y="588" width="186" height="20"/>
+                                                <rect key="frame" x="40" y="588" width="178.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="17"/>
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -438,13 +438,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To follow daily contest you need have a ticket!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piH-gS-GdA">
-                                        <rect key="frame" x="30" y="150.5" width="241" height="40"/>
+                                        <rect key="frame" x="30" y="150.5" width="241" height="41.5"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Light" family="Proxima Nova" pointSize="17"/>
                                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ds-1K-wRa">
-                                        <rect key="frame" x="78" y="211.5" width="145" height="32"/>
+                                        <rect key="frame" x="78" y="213" width="145" height="33"/>
                                         <color key="backgroundColor" red="0.33372300863265991" green="0.52265256643295288" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Semibold" family="Proxima Nova" pointSize="17"/>
                                         <state key="normal" title="Buy a ticket">
@@ -460,7 +460,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ue7-ps-94e">
-                                        <rect key="frame" x="77.5" y="276.5" width="145" height="32"/>
+                                        <rect key="frame" x="77.5" y="279" width="145" height="33"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="15"/>
                                         <state key="normal" title="No, Thank's">
                                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -806,13 +806,13 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Farhan Fauzan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Vk-5I-NlG" userLabel="profile name">
-                                <rect key="frame" x="0.0" y="205" width="250" height="20"/>
+                                <rect key="frame" x="0.0" y="205" width="250" height="21"/>
                                 <fontDescription key="fontDescription" name="ProximaNova-Bold" family="Proxima Nova" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMq-k0-QZV" userLabel="my account view">
-                                <rect key="frame" x="0.0" y="265" width="250" height="70"/>
+                                <rect key="frame" x="0.0" y="266" width="250" height="70"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my account icon" translatesAutoresizingMaskIntoConstraints="NO" id="wzd-h3-Tr3" userLabel="my account image">
                                         <rect key="frame" x="25" y="21" width="28" height="28"/>
@@ -837,7 +837,7 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G2B-d7-aR4" userLabel="my tickets view">
-                                <rect key="frame" x="0.0" y="335" width="250" height="70"/>
+                                <rect key="frame" x="0.0" y="336" width="250" height="70"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tickets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uGe-n9-jMx" userLabel="setting label">
                                         <rect key="frame" x="96" y="15" width="106" height="30"/>
@@ -862,7 +862,7 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pCF-5v-FQP" userLabel="reward view">
-                                <rect key="frame" x="0.0" y="405" width="250" height="70"/>
+                                <rect key="frame" x="0.0" y="406" width="250" height="70"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reward icon" translatesAutoresizingMaskIntoConstraints="NO" id="8X7-zv-BzM" userLabel="reward image">
                                         <rect key="frame" x="30" y="18" width="23" height="35"/>
@@ -887,7 +887,7 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mWV-dA-DWm" userLabel="past winner view">
-                                <rect key="frame" x="0.0" y="475" width="250" height="70"/>
+                                <rect key="frame" x="0.0" y="476" width="250" height="70"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="past winner icon" translatesAutoresizingMaskIntoConstraints="NO" id="lIa-0n-nqK" userLabel="setting image">
                                         <rect key="frame" x="25" y="21" width="28" height="28"/>
@@ -944,13 +944,13 @@ Winners will be chosen only by the most creative, best looking picture of the da
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cg2-8v-oUD" userLabel="my account btn">
-                                <rect key="frame" x="0.0" y="265" width="250" height="70"/>
+                                <rect key="frame" x="0.0" y="266" width="250" height="70"/>
                                 <connections>
                                     <action selector="actionMyAccountBTN:" destination="9Ok-Br-u0d" eventType="touchUpInside" id="3Om-07-Qfd"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PoG-lw-iR7" userLabel="my tickets btn">
-                                <rect key="frame" x="0.0" y="335" width="250" height="70"/>
+                                <rect key="frame" x="0.0" y="336" width="250" height="70"/>
                                 <connections>
                                     <action selector="actionMyTicketsBTN:" destination="9Ok-Br-u0d" eventType="touchUpInside" id="h17-Za-JxG"/>
                                 </connections>

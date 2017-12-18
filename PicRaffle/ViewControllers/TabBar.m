@@ -178,7 +178,7 @@
     [request setDidFinishSelector:@selector(returnedResponse:)];
     [request setDidFailSelector:@selector(failedResponse:)];
     [request setDelegate:self];
-    [request startSynchronous];
+    [request startAsynchronous];
     
 }
 
@@ -188,11 +188,9 @@
     NSMutableDictionary *values=(NSMutableDictionary *) [responseString JSONValue];
     
     NSString *successcode = [values objectForKey:@"success"];
+    [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
     if([successcode isEqualToString:@"0"])
     {
-
-            [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
-
         UIAlertController * alert = [UIAlertController
                                      alertControllerWithTitle:@"Warning!"
                                      message:[[values objectForKey:@"msg"] objectForKey:@"error"] 
@@ -210,9 +208,6 @@
         [self.superViewController presentViewController:alert animated:YES completion:nil];
     }
     else if([successcode isEqualToString:@"1"]){
-
-            [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
-     
         UIAlertController * alert = [UIAlertController
                                      alertControllerWithTitle:@"Got it!"
 //                                     message:[values objectForKey:@"msg"]
