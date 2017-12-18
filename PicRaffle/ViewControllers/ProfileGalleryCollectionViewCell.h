@@ -11,4 +11,6 @@
 @interface ProfileGalleryCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
+
+-(void)initWithUrl:(NSURL *)url;
 @end

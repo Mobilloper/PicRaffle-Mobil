@@ -85,7 +85,7 @@
             [request setDidFinishSelector:@selector(returnedResponse:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             [MBProgressHUD showHUDAddedTo:self.view animated:YES].labelText=@"Changing Password";
             
         });
@@ -120,7 +120,6 @@
 
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
-    NSString *responseString = [request responseString];
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     });

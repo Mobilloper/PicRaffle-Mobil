@@ -160,8 +160,6 @@
 
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
-    NSString *responseString = [request responseString];
-    
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     });

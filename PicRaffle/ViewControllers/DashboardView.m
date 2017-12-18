@@ -109,6 +109,7 @@
         //NSData *image_data = [NSData dataWithContentsOfURL:url];
         
         UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0,0, self.carousel.frame.size.width-20, self.carousel.frame.size.height)];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
         
         __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
         activityIndicator.center = imageView.center;
@@ -129,7 +130,7 @@
             }
         }];
         
-        view.contentMode = UIViewContentModeCenter;
+        view.contentMode = UIViewContentModeScaleAspectFit;
         [view addSubview:imageView];
         
     }
@@ -228,7 +229,6 @@
 
 - (void)carousel:(__unused iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-    NSNumber *item = (self.items)[(NSUInteger)index];
      NSDictionary *temp = [self.items objectAtIndex:index];
      ViewPhotoViewController *vpVC = (ViewPhotoViewController *) [self.superViewController.storyboard instantiateViewControllerWithIdentifier:@"view_photo_std"];
     
@@ -266,6 +266,7 @@
 
 -(void)reloadView
 {
+    [self.carousel scrollToItemAtIndex:0 animated:false];
     NSString *success_code = [[[Global globalManager] gettodaytickets] objectForKey:@"success"];
     if([success_code isEqualToString:@"0"])
     {
@@ -279,6 +280,7 @@
     else{
         self.items = nil;
     }
+    
     [self.carousel reloadData];
     [self loadAllDataComponets];
 }

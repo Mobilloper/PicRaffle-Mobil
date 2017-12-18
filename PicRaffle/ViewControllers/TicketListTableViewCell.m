@@ -90,9 +90,7 @@
 }
 
 -(void) failedTransactionResponse:(ASIHTTPRequest *)request
-{
-    NSString *responseString = [request responseString];
-    
+{  
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
     });
@@ -123,7 +121,7 @@
     [request setDidFinishSelector:@selector(returnedTransactionResponse:)];
     [request setDidFailSelector:@selector(failedTransactionResponse:)];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startSynchronous];
     
 }
 - (void)dropInViewController:(__unused BTDropInViewController *)viewController didSucceedWithPaymentMethod:(BTPaymentMethod *)paymentMethod {
@@ -202,7 +200,7 @@
     [request setDidFinishSelector:@selector(returnedResponse:)];
     [request setDidFailSelector:@selector(failedResponse:)];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startSynchronous];
     
     
     

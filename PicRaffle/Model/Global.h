@@ -20,7 +20,7 @@
 
 //#define ACCOUNT_IMAGE_FOLDER        @"http://admin.picraffleadmin.com/assets/account_image/"
 //#define TICKET_IMAGE_FOLDER         @"http://admin.picraffleadmin.com/assets/uploads/"
-
+//
 //#define ACCOUNT_IMAGE_FOLDER        @"http://192.168.1.61/assets/account_image/"
 //#define TICKET_IMAGE_FOLDER         @"http://192.168.1.61/assets/uploads/"
 
@@ -48,6 +48,7 @@
 #define CHANGEPAYPALEMAIL           @"changepaypalemail"
 #define WITHDRAWURL                 @"withdraw"
 #define CHANGELOACTIONURL           @"changeuserlocation"
+#define CHANGEUSERDESCRIPTiONURL    @"changeuserdescription"
 
 #endif /* Global_h */
 

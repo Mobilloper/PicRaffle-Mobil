@@ -87,6 +87,7 @@
 		8934957D1F8AAFDD00DE6BA1 /* MyTicketsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8934957C1F8AAFDD00DE6BA1 /* MyTicketsViewController.m */; };
 		893495811F8B052600DE6BA1 /* TicketListCustomeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8934957F1F8B052600DE6BA1 /* TicketListCustomeTableViewCell.m */; };
 		893495821F8B052600DE6BA1 /* TicketListCustomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 893495801F8B052600DE6BA1 /* TicketListCustomeTableViewCell.xib */; };
+		897780571FE716DC00E9A9A9 /* DescriptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 897780561FE716DC00E9A9A9 /* DescriptionViewController.m */; };
 		8983DD751FA0B8C900120BE1 /* Global.m in Sources */ = {isa = PBXBuildFile; fileRef = 8983DD741FA0B8C900120BE1 /* Global.m */; };
 		898A5DFE1FC35A1400B7005E /* NSData+Conversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A5DFC1FC35A1300B7005E /* NSData+Conversion.m */; };
 		898A5E011FC36F1B00B7005E /* Notification.m in Sources */ = {isa = PBXBuildFile; fileRef = 898A5E001FC36F1B00B7005E /* Notification.m */; };
@@ -348,6 +349,8 @@
 		8934957E1F8B052600DE6BA1 /* TicketListCustomeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TicketListCustomeTableViewCell.h; path = ViewControllers/TicketListCustomeTableViewCell.h; sourceTree = "<group>"; };
 		8934957F1F8B052600DE6BA1 /* TicketListCustomeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TicketListCustomeTableViewCell.m; path = ViewControllers/TicketListCustomeTableViewCell.m; sourceTree = "<group>"; };
 		893495801F8B052600DE6BA1 /* TicketListCustomeTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TicketListCustomeTableViewCell.xib; path = ViewControllers/TicketListCustomeTableViewCell.xib; sourceTree = "<group>"; };
+		897780551FE716DC00E9A9A9 /* DescriptionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DescriptionViewController.h; sourceTree = "<group>"; };
+		897780561FE716DC00E9A9A9 /* DescriptionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DescriptionViewController.m; sourceTree = "<group>"; };
 		8983DD741FA0B8C900120BE1 /* Global.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Global.m; sourceTree = "<group>"; };
 		898A5DFB1FC354BD00B7005E /* PicRaffle.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PicRaffle.entitlements; sourceTree = "<group>"; };
 		898A5DFC1FC35A1300B7005E /* NSData+Conversion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Conversion.m"; sourceTree = "<group>"; };
@@ -874,6 +877,8 @@
 				89132D0A1FBFFC3C00DDE125 /* ChangeEmailViewController.m */,
 				89132D0C1FC0090C00DDE125 /* ChangePasswordViewController.h */,
 				89132D0D1FC0090C00DDE125 /* ChangePasswordViewController.m */,
+				897780551FE716DC00E9A9A9 /* DescriptionViewController.h */,
+				897780561FE716DC00E9A9A9 /* DescriptionViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1404,6 +1409,7 @@
 				892C9A031FA181AD009339CF /* UIView+WebCacheOperation.m in Sources */,
 				89132D0B1FBFFC3C00DDE125 /* ChangeEmailViewController.m in Sources */,
 				898A5E011FC36F1B00B7005E /* Notification.m in Sources */,
+				897780571FE716DC00E9A9A9 /* DescriptionViewController.m in Sources */,
 				89A0701E1F7C8485000B0DA2 /* LoginViewController.m in Sources */,
 				89C3B9361F7DBBE100E733EE /* LGSideMenuBorderView.m in Sources */,
 				893495601F8A588400DE6BA1 /* SBJSON.m in Sources */,

@@ -14,6 +14,8 @@
 #import "TOCropViewController.h"
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
+#import "DescriptionViewController.h"
+#import "MBProgressHUD.h"
 
 
 @interface ProfileView()<TOCropViewControllerDelegate ,UIActionSheetDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
@@ -53,6 +55,7 @@
 
 -(void)customInit
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveLogoutNotification:) name:@"userinfochanged" object:nil];
     [[NSBundle mainBundle] loadNibNamed:@"ProfileView" owner:self options:nil];
     //self.profileImage.layer.cornerRadius = self.profileImage.layer.frame.size.height / 2 ;
     [self.galleryCollectionView registerNib:[UINib nibWithNibName:@"ProfileGalleryCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"gallerycell"];
@@ -61,6 +64,10 @@
     self.user_info = [[Global globalManager] getUserInfo];
     self.user_name_tv.text = [self.user_info objectForKey:@"name"];
     self.location.text = [NSString stringWithFormat:@"%@, %@",[Global globalManager].locationCity, [Global globalManager].locationCountry];
+    self.description_tv.text = [self.user_info objectForKey:@"description"];
+    if([[self.user_info objectForKey:@"description"] isEqualToString:@""]) {
+        self.description_tv.text = @"Please add description";
+    }
     NSString *finalURL = [NSString stringWithFormat:ACCOUNT_IMAGE_FOLDER];
     
     if([self.user_info objectForKey:@"account_image_name"])
@@ -104,7 +111,11 @@
     [self addSubview: self.view];
 }
 
-
+- (void) receiveLogoutNotification:(NSNotification *) notification
+{
+    if ([[notification name] isEqualToString:@"userinfochanged"])
+        [self reloadView];
+}
 
 #pragma mark collectionview
 
@@ -115,7 +126,6 @@
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (ProfileGalleryCollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    ProfileGalleryCollectionViewCell *cell = [[ProfileGalleryCollectionViewCell alloc]init];
     ProfileGalleryCollectionViewCell *cell = [self.galleryCollectionView dequeueReusableCellWithReuseIdentifier:@"gallerycell" forIndexPath:indexPath];
     
     NSDictionary *temp = [self.mytickets objectAtIndex:indexPath.row];
@@ -124,15 +134,7 @@
     finalURL = [finalURL stringByAppendingString: [temp objectForKey:@"image_name"]];
     NSURL *url = [NSURL URLWithString:finalURL];
     
-    [cell.imageView sd_setImageWithURL:url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        if (error == nil) {
-           
-           
-        } else {
-            
-           
-        }
-    }];
+    [cell initWithUrl:url];
     return cell;
 }
 
@@ -218,7 +220,7 @@
     // 'image' is the newly cropped version of the original image
  
     self.profileImage.image =image;// (UIImage*) [UIImage imageNamed:@"add photo image"];
-    
+     [MBProgressHUD showHUDAddedTo:self.superViewController.view animated:YES].labelText = @"Uploading...";
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
@@ -238,6 +240,7 @@
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
             [request startAsynchronous];
+           
         });
         
     });
@@ -247,6 +250,7 @@
 
 -(void) returnedResponse:(ASIHTTPRequest *)request
 {
+    [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
     NSString *responseString = [request responseString];
     NSMutableDictionary *values=(NSMutableDictionary *) [responseString JSONValue];
     NSString *successcode = [values objectForKey:@"success"];
@@ -264,6 +268,7 @@
 
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
+    [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
    // NSString *responseString = [request responseString];
 }
 
@@ -274,6 +279,10 @@
     self.user_info = [[Global globalManager] getUserInfo];
     self.user_name_tv.text = [self.user_info objectForKey:@"name"];
     self.location.text = [NSString stringWithFormat:@"%@, %@",[Global globalManager].locationCity, [Global globalManager].locationCountry];
+    self.description_tv.text = [self.user_info objectForKey:@"description"];
+    if([[self.user_info objectForKey:@"description"] isEqualToString:@""]) {
+        self.description_tv.text = @"Please add description";
+    }
     NSString *finalURL = [NSString stringWithFormat:ACCOUNT_IMAGE_FOLDER];
     
     if([self.user_info objectForKey:@"account_image_name"])
@@ -291,10 +300,30 @@
         
         finalURL = [finalURL stringByAppendingString: @"no_image.png"];
     }
-    NSURL *url = [NSURL URLWithString:finalURL];
-    NSData *image_data = [NSData dataWithContentsOfURL:url];
-    self.profileImage.image = [UIImage imageWithData:image_data];
     
+    
+    
+    NSURL *url = [NSURL URLWithString:finalURL];
+    
+    
+    __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicator.center = self.profileImage.center;
+    activityIndicator.hidesWhenStopped = YES;
+    [self.profileImage addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+    
+    [self.profileImage sd_setImageWithURL:url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (error == nil) {
+            [activityIndicator stopAnimating];
+            [activityIndicator removeFromSuperview];
+            
+        } else {
+            [activityIndicator stopAnimating];
+            [activityIndicator removeFromSuperview];
+            
+        }
+    }];
+
     self.mytickets = [NSMutableArray array];
     NSDictionary *temp =[[Global globalManager] getMytickets];
     if([[temp objectForKey:@"success"] isEqualToString:@"0"])
@@ -321,7 +350,7 @@
 
 -(void) getUserInfo:(NSString*)userId
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
             finalURL = [finalURL stringByAppendingString: GETUSERINFO_URL];
@@ -332,7 +361,7 @@
             [request setDidFinishSelector:@selector(returnedUserInfoResponse:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
         });
         
     });
@@ -367,8 +396,12 @@
         NSURL *url = [NSURL URLWithString:finalURL];
         NSData *image_data = [NSData dataWithContentsOfURL:url];
         self.profileImage.image = [UIImage imageWithData:image_data];
-        
         self.location.text = [otherUserInfo objectForKey:@"location"];
+        self.description_tv.text = [otherUserInfo objectForKey: @"description"];
+        
+        if([[otherUserInfo objectForKey:@"description"] isEqualToString:@""]) {
+            self.description_tv.text = @"Please add description";
+        }
         
     }
     
@@ -376,7 +409,7 @@
 
 -(void)getTickets:(NSString *) userId
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
             finalURL = [finalURL stringByAppendingString: GETTICKETSBYUSERID_URL];
@@ -389,7 +422,7 @@
             [request setDidFinishSelector:@selector(returnedUserTickets:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             
         });
         
@@ -408,4 +441,14 @@
     }
     
 }
+- (IBAction)actionChangeDescription:(id)sender {
+    if(!self.isMe)return;
+
+     DescriptionViewController *dVC = (DescriptionViewController *) [self.superViewController.storyboard instantiateViewControllerWithIdentifier:@"user_description_std"];
+    self.superViewController.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    self.superViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self.superViewController presentViewController:dVC animated:YES completion:nil];
+}
+
+
 @end

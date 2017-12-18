@@ -28,8 +28,6 @@
     
     // Do any additional setup after loading the view.
     
-    
-    
     self.locationManager = [[CLLocationManager alloc]init];
     self.locationManager.delegate = self;
     [self.locationManager startUpdatingLocation];
@@ -106,11 +104,8 @@
         
         BasicViewController *mainViewController = [BasicViewController new];
         [self presentViewController:mainViewController animated:YES completion:nil];
-        
     }
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -120,7 +115,7 @@
 #pragma mark - custom func
 -(void)swipeleft:(UISwipeGestureRecognizer*)gestureRecognizer
 {
-    [self performSegueWithIdentifier:@"login_stb" sender:nil];
+   // [self performSegueWithIdentifier:@"login_stb" sender:nil];
 }
 
 #pragma mark - demo
@@ -185,7 +180,7 @@
         [self presentViewController:alert animated:YES completion:nil];
         return;
     }
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
             finalURL = [finalURL stringByAppendingString: LOGIN_URL];
@@ -280,7 +275,6 @@
 
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
-    NSString *responseString = [request responseString];
     [MBProgressHUD hideHUDForView:self.view animated:YES];
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:@"Warning!"

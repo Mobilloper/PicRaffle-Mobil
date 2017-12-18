@@ -81,7 +81,7 @@
             [request setDidFinishSelector:@selector(returnedResponse:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             
         });
         
@@ -102,6 +102,15 @@
     }
 }
 
+
+-(void) failedResponse:(ASIHTTPRequest *)request
+{
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Network Error!" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action){
+    }]];
+    
+    [self.superViewController presentViewController:alertController animated:YES completion:nil];
+}
 -(void)loadAllDataComponets
 {
     self.today_contest = [[Global globalManager] getTodayContestInfo];

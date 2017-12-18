@@ -10,6 +10,7 @@
 #import "MyAccountViewController.h"
 #import "MyTicketsViewController.h"
 #import "Global.h"
+#import "UIImageView+WebCache.h"
 
 @interface LeftSidBarViewController ()
 
@@ -53,10 +54,22 @@
     }
     NSURL *url = [NSURL URLWithString:finalURL];
     
-    NSData *image_data = [NSData dataWithContentsOfURL:url];
-    //    self.iv_profile.image
+    __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicator.center = self.iv_profile.center;
+    activityIndicator.hidesWhenStopped = YES;
+    [self.iv_profile addSubview:activityIndicator];
+    [activityIndicator startAnimating];
     
-    self.iv_profile.image = [UIImage imageWithData:image_data];
+    //[imageView setImage:[UIImage imageWithData:image_data]];
+    [self.iv_profile sd_setImageWithURL:url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (error == nil) {
+            [activityIndicator stopAnimating];
+            [activityIndicator removeFromSuperview];
+        } else {
+            [activityIndicator stopAnimating];
+            [activityIndicator removeFromSuperview];
+        }
+    }];
 }
 
 - (void) receiveLogoutNotification:(NSNotification *) notification

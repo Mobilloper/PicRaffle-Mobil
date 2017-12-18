@@ -55,7 +55,7 @@
     [self.superViews setObject:self.tabBar forKey:@"tabbar"];
     [self.superViews setObject:self.addPhotoView forKey:@"addphotoview"];
     
-    [self.navigationbar setNotificationNumber:[UIApplication sharedApplication].applicationIconBadgeNumber] ;
+    [self.navigationbar setNotificationNumber:(int)[UIApplication sharedApplication].applicationIconBadgeNumber] ;
    
     AppDelegate *appdelegate = (AppDelegate*)[[UIApplication sharedApplication] delegate];
     appdelegate.notificationView = self.notificationView;
@@ -219,7 +219,7 @@
             //[request setDidFinishSelector:@selector(returnedUserInfoResponse:)];
             //[request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
         });
         
     });

@@ -43,7 +43,7 @@ static Global *_globalManager;
 
 -(void)loadTodayTicktets
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
             finalURL = [finalURL stringByAppendingString: TODAYCONTEST_URL];
@@ -55,7 +55,7 @@ static Global *_globalManager;
             [request setDidFinishSelector:@selector(returnedTodayContest:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             
         });
         
@@ -64,7 +64,7 @@ static Global *_globalManager;
 
 -(void)loadMyTickets
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
             finalURL = [finalURL stringByAppendingString: GETTICKETSBYUSERID_URL];
@@ -77,7 +77,7 @@ static Global *_globalManager;
             [request setDidFinishSelector:@selector(returnedMyTickets:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             
         });
         
@@ -85,7 +85,7 @@ static Global *_globalManager;
 }
 -(void)loadPastWinners
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
             finalURL = [finalURL stringByAppendingString: GETPASTWINNERS_URL];
@@ -98,7 +98,7 @@ static Global *_globalManager;
             [request setDidFinishSelector:@selector(returnedPastWinners:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             
         });
         
@@ -107,7 +107,7 @@ static Global *_globalManager;
 
 -(void)loadTodayContestInfo
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
             finalURL = [finalURL stringByAppendingString: GETTODAYCONTESTINFO_URL];
@@ -118,7 +118,7 @@ static Global *_globalManager;
             [request setDidFinishSelector:@selector(returnedTodayContestInfo:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             
         });
         
@@ -127,7 +127,7 @@ static Global *_globalManager;
 
 -(void)loadUserInfo
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
             finalURL = [finalURL stringByAppendingString: GETUSERINFO_URL];
@@ -140,7 +140,7 @@ static Global *_globalManager;
             [request setDidFinishSelector:@selector(returnedUserInfo:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             
         });
     });
@@ -148,7 +148,7 @@ static Global *_globalManager;
 
 -(void) loadBalance
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
             NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
             finalURL = [finalURL stringByAppendingString: GETBALANCEURL];
@@ -158,7 +158,7 @@ static Global *_globalManager;
             [request setDidFinishSelector:@selector(returnedBalance:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             
         });
     });

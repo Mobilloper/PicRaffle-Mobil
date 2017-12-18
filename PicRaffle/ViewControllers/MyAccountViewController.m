@@ -11,6 +11,7 @@
 #import "MBProgressHUD.h"
 #import "ASIFormDataRequest.h"
 #import "JSON.h"
+#import "UIImageView+WebCache.h"
 
 @interface MyAccountViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -42,10 +43,21 @@
     }
     NSURL *url = [NSURL URLWithString:finalURL];
     
-    NSData *image_data = [NSData dataWithContentsOfURL:url];
-    //    self.iv_profile.image
-    
-    self.my_profile_imageview.image = [UIImage imageWithData:image_data];
+    __block UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    activityIndicator.center = self.my_profile_imageview.center;
+    activityIndicator.hidesWhenStopped = YES;
+    [self.my_profile_imageview addSubview:activityIndicator];
+    [activityIndicator startAnimating];
+
+    [self.my_profile_imageview sd_setImageWithURL:url placeholderImage:nil completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        if (error == nil) {
+            [activityIndicator stopAnimating];
+            [activityIndicator removeFromSuperview];
+        } else {
+            [activityIndicator stopAnimating];
+            [activityIndicator removeFromSuperview];
+        }
+    }];
     
 }
 
@@ -149,7 +161,7 @@
                                                [request setDidFinishSelector:@selector(returnedResponse:)];
                                                [request setDidFailSelector:@selector(failedResponse:)];
                                                [request setDelegate:self];
-                                               [request startAsynchronous];
+                                               [request startSynchronous];
                                                [MBProgressHUD showHUDAddedTo:self.view animated:YES].labelText=@"Deleting User";
                                                
                                            });
@@ -197,7 +209,6 @@
 
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
-    NSString *responseString = [request responseString];
     dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD hideHUDForView:self.view animated:YES];
     });

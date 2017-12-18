@@ -8,7 +8,7 @@
 
 #import "PaymentViewController.h"
 
-@interface PaymentViewController ()
+@interface PaymentViewController ()<UIViewControllerTransitioningDelegate>
 
 @end
 

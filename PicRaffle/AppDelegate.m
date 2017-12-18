@@ -115,7 +115,7 @@
             [request setDidFinishSelector:@selector(returnedResponse:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
         });
         
     });
@@ -144,7 +144,7 @@
     if(self.notificationView != nil)
     {
         [self.notificationView reloadTableView];
-        [self.navigationBar setNotificationNumber:[UIApplication sharedApplication].applicationIconBadgeNumber + 1];
+        [self.navigationBar setNotificationNumber:(int)[UIApplication sharedApplication].applicationIconBadgeNumber + 1];
         [UIApplication sharedApplication].applicationIconBadgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber + 1;
     }
     

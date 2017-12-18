@@ -142,7 +142,7 @@
             [request setDidFinishSelector:@selector(returnedResponse:)];
             [request setDidFailSelector:@selector(failedResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
             
         });
@@ -200,7 +200,7 @@
             [request setDidFinishSelector:@selector(returnedWithdrawResponse:)];
             [request setDidFailSelector:@selector(failedWithdrawResponse:)];
             [request setDelegate:self];
-            [request startAsynchronous];
+            [request startSynchronous];
             [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         });
         

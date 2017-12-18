@@ -109,11 +109,11 @@
 
 
 - (IBAction)actionHomeBTN:(id)sender {
-    //[[Global globalManager]reloadAllData];
+//    [[Global globalManager]reloadAllData];
     [self setHomeActive];
 }
 - (IBAction)actionCupBTN:(id)sender {
-  //[[Global globalManager]reloadAllData];
+//  [[Global globalManager]reloadAllData];
   [self setCupActive];
 }
 
@@ -142,7 +142,8 @@
     NSString *successcode = [self.todaycontestinfo objectForKey:@"success"];
     if([successcode isEqualToString:@"0"])
     {
-        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning" message:@"Today Contest is not created, Please Uplaod after today contest would be created!" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Warning"
+                                                                                 message:[self.todaycontestinfo objectForKey:@"msg"] preferredStyle:UIAlertControllerStyleAlert];
         [alertController addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
         [self.superViewController presentViewController:alertController animated:YES completion:nil];
         return;
@@ -177,7 +178,7 @@
     [request setDidFinishSelector:@selector(returnedResponse:)];
     [request setDidFailSelector:@selector(failedResponse:)];
     [request setDelegate:self];
-    [request startAsynchronous];
+    [request startSynchronous];
     
 }
 
@@ -189,9 +190,9 @@
     NSString *successcode = [values objectForKey:@"success"];
     if([successcode isEqualToString:@"0"])
     {
-        dispatch_async(dispatch_get_main_queue(), ^{
+
             [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
-        });
+
         UIAlertController * alert = [UIAlertController
                                      alertControllerWithTitle:@"Warning!"
                                      message:[[values objectForKey:@"msg"] objectForKey:@"error"] 
@@ -209,9 +210,9 @@
         [self.superViewController presentViewController:alert animated:YES completion:nil];
     }
     else if([successcode isEqualToString:@"1"]){
-        dispatch_async(dispatch_get_main_queue(), ^{
+
             [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
-        });
+     
         UIAlertController * alert = [UIAlertController
                                      alertControllerWithTitle:@"Got it!"
 //                                     message:[values objectForKey:@"msg"]
@@ -228,19 +229,15 @@
         //Add your buttons to alert controller
         [alert addAction:noButton];
         [self.superViewController presentViewController:alert animated:YES completion:nil];
-       
+        [[Global globalManager] reloadAllData];
     }
-     [[Global globalManager] reloadAllData];
+    
     
 }
 
 -(void) failedResponse:(ASIHTTPRequest *)request
 {
-    NSString *responseString = [request responseString];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
-    });
-    
+    [MBProgressHUD hideHUDForView:self.superViewController.view animated:YES];
     UIAlertController * alert = [UIAlertController
                                  alertControllerWithTitle:@"Warning!"
                                  message:@"NetWork occurs error"
