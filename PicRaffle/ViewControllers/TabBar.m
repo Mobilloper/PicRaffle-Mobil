@@ -219,6 +219,7 @@
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction * action) {
                                        //Handle no, thanks button
+                                      [self setHomeActive];
                                    }];
         
         //Add your buttons to alert controller
