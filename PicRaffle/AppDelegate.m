@@ -27,6 +27,17 @@
     // Override point for customization after application launch.
 //    user_info = [[NSDictionary alloc]init];
     
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+         (UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
+    }
+    
     
     [Braintree setReturnURLScheme:@"com.professmultimedia.mymoviemessages.payments"];
     
@@ -53,6 +64,12 @@
     
     return YES;
 }
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings // NS_AVAILABLE_IOS(8_0);
+{
+    [application registerForRemoteNotifications];
+}
+
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
@@ -101,7 +118,15 @@
 }
 
 - (void)application:(UIApplication *)app didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)devToken {
-    NSString *strToken = [devToken hexadecimalString];
+  //  NSString *strToken = [devToken hexadecimalString];
+    
+    NSLog(@"deviceToken: %@", devToken);
+    NSString * strToken = [NSString stringWithFormat:@"%@", devToken];
+    //Format token as you need:
+    strToken = [strToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    strToken = [strToken stringByReplacingOccurrencesOfString:@">" withString:@""];
+    strToken = [strToken stringByReplacingOccurrencesOfString:@"<" withString:@""];
+    
     if(strToken != nil && ![strToken isEqualToString:@""] )
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -117,7 +142,6 @@
             [request setDelegate:self];
             [request startSynchronous];
         });
-        
     });
     NSLog(@"My device token = %@", strToken);
 }
