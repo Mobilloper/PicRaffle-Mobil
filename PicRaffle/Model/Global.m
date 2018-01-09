@@ -288,14 +288,47 @@ static Global *_globalManager;
 }
 
 - (void)loadNotifications{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString *finalURL = [NSString stringWithFormat:SITE_DOMAIN];
+            finalURL = [finalURL stringByAppendingString: GETALLNOTIFICATIONSURL];
+            NSURL *url = [NSURL URLWithString:finalURL];
+            ASIFormDataRequest *request = [ASIFormDataRequest requestWithURL:url];
+            
+            [request setDidFinishSelector:@selector(returnedNotifications:)];
+            [request setDidFailSelector:@selector(failedResponse:)];
+            [request setDelegate:self];
+            [request startSynchronous];
+            
+        });
+    });
 
-    NSMutableArray *savedArr  = [[NSUserDefaults standardUserDefaults] objectForKey:@"notis"];
-    self.notifications = [[NSMutableArray alloc] init];
-    for(NSData *tempdata in savedArr)
+//    NSMutableArray *savedArr  = [[NSUserDefaults standardUserDefaults] objectForKey:@"notis"];
+//    self.notifications = [[NSMutableArray alloc] init];
+//    for(NSData *tempdata in savedArr)
+//    {
+//        Notification *tempNoti = [NSKeyedUnarchiver unarchiveObjectWithData:tempdata];
+//        [self.notifications addObject:tempNoti];
+//    }
+}
+
+-(void)returnedNotifications:(ASIHTTPRequest *)request {
+    NSString *responseString = [request responseString];
+    NSMutableDictionary *values = (NSMutableDictionary *) [responseString JSONValue];
+    NSString *successcode = [values objectForKey:@"success"];
+    if([successcode isEqualToString:@"1"])
     {
-        Notification *tempNoti = [NSKeyedUnarchiver unarchiveObjectWithData:tempdata];
-        [self.notifications addObject:tempNoti];
+        NSMutableArray *notis = [values objectForKey:@"msg"];
+        for(NSMutableDictionary *notification in notis) {
+            Notification* noti = [[Notification alloc] init];
+            noti.notiID = @"1";
+            noti.notiContent = [notification objectForKey:@"noti_content"];
+            noti.notiKind = @"start";
+            [Global.globalManager.notifications addObject:noti];
+        }
     }
+    
+    [self saveNotifications];
 }
 
 -(NSMutableArray*)getNotis{

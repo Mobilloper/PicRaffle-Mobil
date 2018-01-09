@@ -49,6 +49,7 @@
 #define WITHDRAWURL                 @"withdraw"
 #define CHANGELOACTIONURL           @"changeuserlocation"
 #define CHANGEUSERDESCRIPTiONURL    @"changeuserdescription"
+#define GETALLNOTIFICATIONSURL      @"getallnotifications"
 
 #endif /* Global_h */
 

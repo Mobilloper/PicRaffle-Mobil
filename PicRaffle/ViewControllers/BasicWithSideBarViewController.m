@@ -21,6 +21,7 @@
 #import "MyTicketsViewController.h"
 #import "AppDelegate.h"
 #import "ASIFormDataRequest.h"
+#import "NoCreatedContestViewController.h"
 
 @interface BasicWithSideBarViewController ()
 @property (weak, nonatomic) IBOutlet NavigationBar *navigationbar;
@@ -64,7 +65,11 @@
     appdelegate.ticketListView = self.buyTicketListView;
     appdelegate.navigationBar = self.navigationbar;
     
+    
+    
     [self saveUserLocation];
+    
+    [self checkTodayContest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -93,7 +98,12 @@
    
 }
 
-
+-(void) checkTodayContest {
+    NoCreatedContestViewController *nccVC = (NoCreatedContestViewController *) [self.storyboard instantiateViewControllerWithIdentifier:@"nocreated_stb"];
+    self.modalPresentationStyle = UIModalPresentationOverFullScreen;
+    self.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:nccVC animated:YES completion:nil];
+}
 
 -(void)showNotificationView
 {

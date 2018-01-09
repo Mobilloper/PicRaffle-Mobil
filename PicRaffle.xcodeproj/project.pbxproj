@@ -11,6 +11,7 @@
 		65B1C31E3CB0265524344278 /* libPods-PicRaffleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C261470821EFC0208C044CCA /* libPods-PicRaffleTests.a */; };
 		89132D0B1FBFFC3C00DDE125 /* ChangeEmailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89132D0A1FBFFC3C00DDE125 /* ChangeEmailViewController.m */; };
 		89132D0E1FC0090C00DDE125 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 89132D0D1FC0090C00DDE125 /* ChangePasswordViewController.m */; };
+		8920156320042CD100D53C5A /* NoCreatedContestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8920156220042CD100D53C5A /* NoCreatedContestViewController.m */; };
 		89208E321F88979D001FC66A /* TOCropViewControllerLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 89208E071F88979D001FC66A /* TOCropViewControllerLocalizable.strings */; };
 		89208E331F88979D001FC66A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89208E101F88979D001FC66A /* Info.plist */; };
 		89208E341F88979D001FC66A /* TOActivityCroppedImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 89208E161F88979D001FC66A /* TOActivityCroppedImageProvider.m */; };
@@ -186,6 +187,8 @@
 		89132D0A1FBFFC3C00DDE125 /* ChangeEmailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangeEmailViewController.m; sourceTree = "<group>"; };
 		89132D0C1FC0090C00DDE125 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
 		89132D0D1FC0090C00DDE125 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
+		8920156120042CD100D53C5A /* NoCreatedContestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoCreatedContestViewController.h; sourceTree = "<group>"; };
+		8920156220042CD100D53C5A /* NoCreatedContestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoCreatedContestViewController.m; sourceTree = "<group>"; };
 		89208E081F88979D001FC66A /* ar */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ar; path = ar.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		89208E091F88979D001FC66A /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
 		89208E0A1F88979D001FC66A /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/TOCropViewControllerLocalizable.strings; sourceTree = "<group>"; };
@@ -879,6 +882,8 @@
 				89132D0D1FC0090C00DDE125 /* ChangePasswordViewController.m */,
 				897780551FE716DC00E9A9A9 /* DescriptionViewController.h */,
 				897780561FE716DC00E9A9A9 /* DescriptionViewController.m */,
+				8920156120042CD100D53C5A /* NoCreatedContestViewController.h */,
+				8920156220042CD100D53C5A /* NoCreatedContestViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1364,6 +1369,7 @@
 				89FFC2581F80C52E001213F8 /* ProfileView.m in Sources */,
 				892C99ED1FA181AD009339CF /* NSData+ImageContentType.m in Sources */,
 				89C3B9481F7DFCF700E733EE /* NavigationController.m in Sources */,
+				8920156320042CD100D53C5A /* NoCreatedContestViewController.m in Sources */,
 				89C3B9381F7DBBE100E733EE /* LGSideMenuGesturesHandler.m in Sources */,
 				892C99F01FA181AD009339CF /* SDImageCacheConfig.m in Sources */,
 				E23581371FBD2AFE00CC8C73 /* WithdrawVC.m in Sources */,
